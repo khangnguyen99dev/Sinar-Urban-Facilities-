@@ -2,7 +2,11 @@
   "compilerOptions": {
     "module": "CommonJS",
     "moduleResolution": "Node",
-    "lib": ["ES2020"],
+    "lib": [
+      "es2020",
+      "dom",
+      "dom.iterable"
+    ],
     "target": "ES2019",
     "strict": false,
     "skipLibCheck": true,
