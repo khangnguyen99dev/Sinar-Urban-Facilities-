@@ -9,9 +9,10 @@ import { Router } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  currentRoute: string = '';
   constructor(private router: Router) {}
 
-  navigateTo(path: string) {
-    this.router.navigate([path]);
+  ngOnInit() {
+    this.currentRoute = this.router.url;
   }
 }

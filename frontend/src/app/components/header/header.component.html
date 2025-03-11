@@ -68,37 +68,37 @@
                                             <li class="current-menu-ancestor">
                                                 <a href="/home">Home</a>
                                             </li>
-                                            <li class="has-dropdown">
-                                                <a href="/services">Services</a>
+                                            <li class="has-dropdown {{currentRoute === '/services' || currentRoute === '/service-details' ? 'current-menu-ancestor' : ''}}">
+                                                <a href="javascript:void(0)">Services</a>
                                                 <ul class="sub-menu">
-                                                    <li><a href="/services">Services</a></li>
-                                                    <li><a href="/service-details">Services Details</a></li>
+                                                    <li class="{{currentRoute === '/services' ? 'current-menu-item' : ''}}"><a href="/services">Services</a></li>
+                                                    <li class="{{currentRoute === '/service-details' ? 'current-menu-item' : ''}}"><a href="/service-details">Services Details</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="has-dropdown">
+                                            <li class="has-dropdown {{currentRoute === '/portfolio' || currentRoute === '/portfolio-details' ? 'current-menu-ancestor' : ''}}">
                                                 <a href="javascript:void(0)">Portfolio</a>
                                                 <ul class="sub-menu">
-                                                    <li><a href="/portfolio">Portfolio</a></li>
-                                                    <li><a href="/portfolio-details">Portfolio Details</a></li>
+                                                    <li class="{{currentRoute === '/portfolio' ? 'current-menu-item' : ''}}"><a href="/portfolio">Portfolio</a></li>
+                                                    <li class="{{currentRoute === '/portfolio-details' ? 'current-menu-item' : ''}}"><a href="/portfolio-details">Portfolio Details</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="has-dropdown">
-                                                <a href="#">Pages</a>
+                                            <li class="has-dropdown {{currentRoute === '/about' || currentRoute === '/teams' || currentRoute === '/team-details' ? 'current-menu-ancestor' : ''}}   ">
+                                                <a href="javascript:void(0)">Pages</a>
                                                 <ul class="sub-menu">
-                                                    <li><a href="/about">About</a></li>
-                                                    <li><a href="/teams">Teams</a></li>
-                                                    <li><a href="/team-details">Team Details</a></li>
+                                                    <li class="{{currentRoute === '/about' ? 'current-menu-item' : ''}}"><a href="/about">About</a></li>
+                                                    <li class="{{currentRoute === '/teams' ? 'current-menu-item' : ''}}"><a href="/teams">Teams</a></li>
+                                                    <li class="{{currentRoute === '/team-details' ? 'current-menu-item' : ''}}"><a href="/team-details">Team Details</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="has-dropdown">
+                                            <li class="has-dropdown {{currentRoute === '/blog-grid' || currentRoute === '/blog-stander' || currentRoute === '/blog-details' ? 'current-menu-ancestor' : ''}}">
                                                 <a href="javascript:void(0)">News</a>
                                                 <ul class="sub-menu">
-                                                    <li><a href="/blog-grid">Blog Grid</a></li>
-                                                    <li><a href="/blog-stander">Blog Stander</a></li>
-                                                    <li><a href="/blog-details">Blog Details</a></li>
+                                                    <li class="{{currentRoute === '/blog-grid' ? 'current-menu-item' : ''}}"><a href="/blog-grid">Blog Grid</a></li>
+                                                    <li class="{{currentRoute === '/blog-stander' ? 'current-menu-item' : ''}}"><a href="/blog-stander">Blog Stander</a></li>
+                                                    <li class="{{currentRoute === '/blog-details' ? 'current-menu-item' : ''}}"><a href="/blog-details">Blog Details</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="/contact">Contact</a></li>
+                                            <li class="{{currentRoute === '/contact' ? 'current-menu-item' : ''}}"><a href="/contact">Contact</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -155,30 +155,34 @@
                                         <li class="current-menu-ancestor">
                                             <a href="/home">Home</a>
                                         </li>
-                                        <li class="has-dropdown"><a href="/services">Services</a>
+                                        <li class="has-dropdown {{currentRoute === '/services' || currentRoute === '/service-details' ? 'current-menu-ancestor' : ''}}">
+                                            <a href="javascript:void(0)">Services</a>
                                             <ul class="sub-menu">
-                                                <li><a href="/services">Services</a></li>
-                                                <li><a href="/service-details">Services Details</a></li>
+                                                <li class="{{currentRoute === '/services' ? 'current-menu-item' : ''}}"><a href="/services">Services</a></li>
+                                                <li class="{{currentRoute === '/service-details' ? 'current-menu-item' : ''}}"><a href="/service-details">Services Details</a></li>
                                             </ul>
                                         </li>
-                                        <li class="has-dropdown"><a href="javascript:void(0)">Portfolio</a>
+                                        <li class="has-dropdown {{currentRoute === '/portfolio' || currentRoute === '/portfolio-details' ? 'current-menu-ancestor' : ''}}">
+                                            <a href="javascript:void(0)">Portfolio</a>
                                             <ul class="sub-menu">
-                                                <li><a href="/portfolio">Portfolio</a></li>
-                                                <li><a href="/portfolio-details">Portfolio Details</a></li>
+                                                <li class="{{currentRoute === '/portfolio' ? 'current-menu-item' : ''}}"><a href="/portfolio">Portfolio</a></li>
+                                                <li class="{{currentRoute === '/portfolio-details' ? 'current-menu-item' : ''}}"><a href="/portfolio-details">Portfolio Details</a></li>
                                             </ul>
                                         </li>
-                                        <li class="has-dropdown"><a href="/about">Pages</a>
+                                        <li class="has-dropdown {{currentRoute === '/about' || currentRoute === '/teams' || currentRoute === '/team-details' ? 'current-menu-ancestor' : ''}}">
+                                            <a href="javascript:void(0)">Pages</a>
                                             <ul class="sub-menu">
-                                                <li><a href="/about">About</a></li>
-                                                <li><a href="/teams">Team</a></li>
-                                                <li><a href="/team-details">Team Details</a></li>
+                                                <li class="{{currentRoute === '/about' ? 'current-menu-item' : ''}}"><a href="/about">About</a></li>
+                                                <li class="{{currentRoute === '/teams' ? 'current-menu-item' : ''}}"><a href="/teams">Team</a></li>
+                                                <li class="{{currentRoute === '/team-details' ? 'current-menu-item' : ''}}"><a href="/team-details">Team Details</a></li>
                                             </ul>
                                         </li>
-                                        <li class="has-dropdown"><a href="/blog-grid">News</a>
+                                        <li class="has-dropdown {{currentRoute === '/blog-grid' || currentRoute === '/blog-stander' || currentRoute === '/blog-details' ? 'current-menu-ancestor' : ''}}">
+                                            <a href="javascript:void(0)">News</a>
                                             <ul class="sub-menu">
-                                                <li><a href="/blog-grid">Blog Grid</a></li>
-                                                <li><a href="/blog-stander">Blog Stander</a></li>
-                                                <li><a href="/blog-details">Blog Details</a></li>
+                                                <li class="{{currentRoute === '/blog-grid' ? 'current-menu-item' : ''}}"><a href="/blog-grid">Blog Grid</a></li>
+                                                <li class="{{currentRoute === '/blog-stander' ? 'current-menu-item' : ''}}"><a href="/blog-stander">Blog Stander</a></li>
+                                                <li class="{{currentRoute === '/blog-details' ? 'current-menu-item' : ''}}"><a href="/blog-details">Blog Details</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="/contact">Contact</a></li>
