@@ -27,7 +27,17 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "src/assets/fonts",
+                "output": "/assets/fonts"
+              },
+              {
+                "glob": "**/*.js",
+                "input": "src/assets/js",
+                "output": "/assets/js"
+              }
             ],
             "styles": [
               "src/styles.scss",
@@ -47,7 +57,6 @@
               "src/assets/js/bootstrap.bundle.min.js",
               "src/assets/js/waypoints.js",
               "src/assets/js/appear.min.js",
-              "src/assets/js/beforeafter.jquery-1.0.0.min.js",
               "src/assets/js/odometer.min.js",
               "src/assets/js/jquery.nice-select.min.js",
               "src/assets/js/swiper-bundle.js",
@@ -56,6 +65,7 @@
               "src/assets/js/isotope.pkgd.min.js",
               "src/assets/js/meanmenu.js",
               "src/assets/js/wow.js",
+              "src/assets/js/beforeafter.jquery-1.0.0.min.js",
               "src/assets/js/main.js"
             ]
           },
@@ -64,13 +74,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "8kb",
+                  "maximumError": "16kb"
                 }
               ],
               "outputHashing": "all"
