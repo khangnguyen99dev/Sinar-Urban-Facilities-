@@ -38,7 +38,7 @@
     },
     "slug": {
       "type": "string",
-      "required": true
+      "editable": false
     },
     "is_show_home": {
       "type": "boolean",

@@ -39,12 +39,17 @@
     },
     "slug": {
       "type": "string",
-      "required": true
+      "editable": false
     },
     "is_show_home": {
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "service_detail": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::service-detail.service-detail"
     }
   }
 }

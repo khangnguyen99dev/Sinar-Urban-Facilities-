@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "service_details",
+  "info": {
+    "singularName": "service-detail",
+    "pluralName": "service-details",
+    "displayName": "ServiceDetail",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title_paragraph_1": {
+      "type": "string",
+      "required": true
+    },
+    "description_paragraph_1": {
+      "type": "text",
+      "required": true
+    },
+    "title_paragraph_2": {
+      "type": "string"
+    },
+    "description_paragraph_2": {
+      "type": "text"
+    },
+    "image_1_paragraph_1": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "image_2_paragraph_1": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "image_1_paragraph_2": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "question": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::question.question"
+    },
+    "service_qualities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service-quality.service-quality"
+    }
+  }
+}
