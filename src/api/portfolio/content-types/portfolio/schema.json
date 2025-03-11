@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portfolios",
+  "info": {
+    "singularName": "portfolio",
+    "pluralName": "portfolios",
+    "displayName": "Portfolio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "title_paragraph_1": {
+      "type": "string",
+      "required": true
+    },
+    "description_paragraph_1": {
+      "type": "text",
+      "required": true
+    },
+    "title_paragraph_2": {
+      "type": "string",
+      "required": true
+    },
+    "description_paragraph_2": {
+      "type": "text",
+      "required": true
+    },
+    "service_title_1": {
+      "type": "string",
+      "required": true
+    },
+    "service_title_2": {
+      "type": "string",
+      "required": true
+    },
+    "service_title_3": {
+      "type": "string",
+      "required": true
+    },
+    "service_title_4": {
+      "type": "string",
+      "required": true
+    },
+    "sub_image_1": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "sub_image_2": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

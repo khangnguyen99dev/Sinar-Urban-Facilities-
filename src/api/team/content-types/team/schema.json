@@ -1,0 +1,89 @@
+{
+  "kind": "collectionType",
+  "collectionName": "teams",
+  "info": {
+    "singularName": "team",
+    "pluralName": "teams",
+    "displayName": "Team"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "role_name": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "url_facebook": {
+      "type": "string",
+      "required": true
+    },
+    "url_x": {
+      "type": "string",
+      "required": true
+    },
+    "url_linkedin": {
+      "type": "string",
+      "required": true
+    },
+    "url_vimeo": {
+      "type": "string",
+      "required": true
+    },
+    "is_show_home": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "clients_satisfaction": {
+      "type": "biginteger",
+      "required": true
+    },
+    "cleaning_services": {
+      "type": "biginteger",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "service_title_1": {
+      "type": "string",
+      "required": true
+    },
+    "service_title_2": {
+      "type": "string",
+      "required": true
+    },
+    "service_title_3": {
+      "type": "string",
+      "required": true
+    },
+    "service_title_4": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  }
+}
+
