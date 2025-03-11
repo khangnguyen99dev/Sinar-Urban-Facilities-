@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   constructor(private scriptService: ScriptService) {}
 
   ngOnInit() {
-    // Load scripts theo thứ tự
+    // load scripts in order
     this.scriptService.load('jquery')
       .then(() => this.scriptService.load('bootstrap'))
       .then(() => this.scriptService.load('waypoints'))
@@ -31,22 +31,20 @@ export class AppComponent implements OnInit {
       .then(() => this.scriptService.load('beforeafter'))
       .then(() => this.scriptService.load('main'))
       .then(() => {
-        // Khởi tạo các plugin sau khi tất cả script đã load
+        // initialize plugins
         this.initializePlugins();
       })
       .catch(error => console.log('Error loading script', error));
   }
 
   private initializePlugins() {
-    // Đợi DOM load xong
+    // wait for DOM load
     $(document).ready(() => {
-      // Khởi tạo WOW.js
+      // initialize WOW.js
       new WOW().init();
 
-      // Khởi tạo Nice Select
+      // initialize Nice Select
       $('select').niceSelect();
-
-      // Các khởi tạo plugin khác...
     });
   }
 }
