@@ -10,6 +10,7 @@ import { SearchPopupComponent } from './components/search-popup/search-popup.com
 import { CartMiniComponent } from './components/cart-mini/cart-mini.component';
 import { HamburgerComponent } from './components/hamburger/hamburger.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HeaderSecondComponent } from './components/header-second/header-second.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     HeaderComponent,
+    HeaderSecondComponent,
     LoaderWrapperComponent,
     BackToTopWrapperComponent,
     FooterComponent,

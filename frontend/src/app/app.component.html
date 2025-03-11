@@ -22,7 +22,8 @@
 <!-- hamburger end -->
 
 <!-- Header -->
-<app-header></app-header>
+<app-header *ngIf="!isHeaderSecond"></app-header>
+<app-header-second *ngIf="isHeaderSecond"></app-header-second>
 
 <main id="primary" class="site-main">
     <router-outlet></router-outlet>

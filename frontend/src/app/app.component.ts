@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ScriptService } from './services/script.service';
+import { Router, NavigationEnd } from '@angular/router';
 
 declare var $: any;
 declare var WOW: any;
@@ -11,10 +12,17 @@ declare var WOW: any;
 })
 export class AppComponent implements OnInit {
   title = 'frontend';
-
-  constructor(private scriptService: ScriptService) {}
+  isHeaderSecond: boolean = false;
+  constructor(private scriptService: ScriptService, private router: Router) {}
 
   ngOnInit() {
+
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.isHeaderSecond = event.url !== '/home' && event.url !== '/';
+        console.log(this.isHeaderSecond);
+      }
+    });
     // load scripts in order
     this.scriptService.load('jquery')
       .then(() => this.scriptService.load('bootstrap'))
