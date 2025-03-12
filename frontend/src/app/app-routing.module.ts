@@ -59,6 +59,13 @@ const routes: Routes = [
     }
   },
   {
+    path: 'team/:slug',
+    loadChildren: () => import('./pages/team-detail/team-detail.module').then(m => m.TeamDetailModule),
+    data: {
+      layout: 'app',
+    }
+  },
+  {
     path: 'blog-grid',
     loadChildren: () => import('./pages/blog-grid/blog-grid.module').then(m => m.BlogGridModule),
     data: {

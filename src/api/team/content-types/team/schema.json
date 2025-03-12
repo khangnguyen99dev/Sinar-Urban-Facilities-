@@ -73,6 +73,10 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::service.service"
+    },
+    "slug": {
+      "type": "string",
+      "editable": false
     }
   }
 }

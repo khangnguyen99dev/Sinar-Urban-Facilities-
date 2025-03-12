@@ -14,7 +14,8 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    TeamComponent
   ]
 })
 export class TeamModule { }
