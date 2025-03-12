@@ -26,7 +26,7 @@
             <div *ngFor="let item of data" class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                 <div class="tj-team-wrapper wow fadeInUp" data-wow-delay=".2s">
                     <div class="tj-team-thumb">
-                        <a [href]="'/team/'+item.slug"><img [src]="url_image + item.avatar.url" alt=""></a>
+                        <a [routerLink]="['/team-detail', item.slug]"><img [src]="url_image + item.avatar.url" alt=""></a>
                     </div>
                     <div class="tj-team-social">
                         <div class="tj-team-btn">
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="tj-team-content">
-                        <h4 class="tj-team-title"><a [href]="'/team/'+item.slug">{{item.name}}</a></h4>
+                        <h4 class="tj-team-title"><a [routerLink]="['/team-detail', item.slug]">{{item.name}}</a></h4>
                         <p class="tj-team-paragraph">{{ item.role_name }}</p>
                         <div class="tj-team-button">
                             <a class="tj-team-call-btn" [href]="'tel:' + item.phone"><i

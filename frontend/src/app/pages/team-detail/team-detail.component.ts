@@ -22,15 +22,15 @@ export class TeamDetailComponent {
 
   ngOnInit(): void {
     this.slug = this.route.snapshot.paramMap.get('slug') || '';
-    // this.loadData();
+    this.loadData();
   }
 
-  // async loadData() {
-  //   const params = `filters[slug][$eq]=${this.slug}&populate=*&sort=createdAt:desc&pagination[limit]=1`;
-  //   this.apiService.get('services', true, params).then((data: any) => {
-  //     this.data = data.data[0];
-  //     console.log(this.data);
-  //   });
-  // }
+  async loadData() {
+    const params = `filters[slug][$eq]=${this.slug}&populate=*`;
+    this.apiService.get('teams', true, params).then((data: any) => {
+      this.data = data.data[0];
+      console.log(this.data);
+    });
+  }
 }
 

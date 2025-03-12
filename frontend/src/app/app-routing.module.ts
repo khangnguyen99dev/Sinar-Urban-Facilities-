@@ -52,14 +52,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'team-details',
-    loadChildren: () => import('./pages/team-detail/team-detail.module').then(m => m.TeamDetailModule),
-    data: {
-      layout: 'app',
-    }
-  },
-  {
-    path: 'team/:slug',
+    path: 'team-detail/:slug',
     loadChildren: () => import('./pages/team-detail/team-detail.module').then(m => m.TeamDetailModule),
     data: {
       layout: 'app',
