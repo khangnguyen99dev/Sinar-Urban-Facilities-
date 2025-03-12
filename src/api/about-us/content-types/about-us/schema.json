@@ -28,7 +28,7 @@
         "files"
       ]
     },
-    "icon_image": {
+    "fouder_image": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -37,11 +37,7 @@
         "files"
       ]
     },
-    "icon_title": {
-      "type": "string",
-      "required": true
-    },
-    "icon_description": {
+    "fouder_name": {
       "type": "string",
       "required": true
     },

@@ -28,15 +28,6 @@
       "type": "string",
       "required": true
     },
-    "icon": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
-    },
     "slug": {
       "type": "string",
       "editable": false
@@ -53,6 +44,10 @@
     },
     "price": {
       "type": "biginteger"
+    },
+    "icon_class": {
+      "type": "string",
+      "required": true
     }
   }
 }

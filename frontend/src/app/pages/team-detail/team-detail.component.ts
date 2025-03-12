@@ -1,19 +1,44 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { environment } from '../../../environments/environment';
+import { NgFor, NgIf } from '@angular/common';
+import { Subscription } from 'rxjs';
+
+interface Team {
+  name: string;
+  role_name: string;
+  phone: string;
+  url_facebook: string;
+  url_x: string;
+  url_linkedin: string;
+  url_vimeo: string;
+  clients_satisfaction: string;
+  cleaning_services: string;
+  email: string;
+  description: string;
+  slug: string;
+  avatar: { url: string } | null;
+  services: { title: string; }[];
+}
 
 @Component({
   selector: 'app-team-detail',
   standalone: true,
-  imports: [],
+  imports: [
+    NgIf,
+    NgFor,
+    RouterLink
+  ],
   templateUrl: './team-detail.component.html',
   styleUrl: './team-detail.component.scss'
 })
-export class TeamDetailComponent {
+export class TeamDetailComponent implements OnInit, OnDestroy {
   slug: string = '';
-  data: any;
+  data!: Team;
   url_image = environment.site_url;
+  teams: Team[] = [];
+  private routeSub!: Subscription;
 
   constructor(
     private apiService: ApiService,
@@ -21,16 +46,29 @@ export class TeamDetailComponent {
   ) { }
 
   ngOnInit(): void {
-    this.slug = this.route.snapshot.paramMap.get('slug') || '';
-    this.loadData();
+    this.routeSub = this.route.paramMap.subscribe(params => {
+      this.slug = params.get('slug') || '';
+      this.loadData();
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.routeSub) {
+      this.routeSub.unsubscribe();
+    }
   }
 
   async loadData() {
     const params = `filters[slug][$eq]=${this.slug}&populate=*`;
-    this.apiService.get('teams', true, params).then((data: any) => {
-      this.data = data.data[0];
-      console.log(this.data);
-    });
+    try {
+      const response = await this.apiService.get('teams', false, params) as any;
+      this.data = response[0] as Team;
+
+      const paramsTeam = `filters[slug][$ne]=${this.slug}&populate=*&pagination[limit]=4`;
+      const responseTeam = await this.apiService.get('teams', false, paramsTeam) as any;
+      this.teams = responseTeam as Team[];
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
-

@@ -24,20 +24,16 @@
       "required": true
     },
     "url_facebook": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "url_x": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "url_linkedin": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "url_vimeo": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "is_show_home": {
       "type": "boolean",

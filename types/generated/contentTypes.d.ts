@@ -385,10 +385,9 @@ export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
-    icon_description: Schema.Attribute.String & Schema.Attribute.Required;
-    icon_image: Schema.Attribute.Media<'images' | 'files'> &
+    fouder_image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
-    icon_title: Schema.Attribute.String & Schema.Attribute.Required;
+    fouder_name: Schema.Attribute.String & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -564,10 +563,10 @@ export interface ApiCompanyInfoCompanyInfo extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url_facebook: Schema.Attribute.String & Schema.Attribute.Required;
-    url_linkedin: Schema.Attribute.String & Schema.Attribute.Required;
-    url_vimeo: Schema.Attribute.String & Schema.Attribute.Required;
-    url_x: Schema.Attribute.String & Schema.Attribute.Required;
+    url_facebook: Schema.Attribute.String;
+    url_linkedin: Schema.Attribute.String;
+    url_vimeo: Schema.Attribute.String;
+    url_x: Schema.Attribute.String;
   };
 }
 
@@ -833,8 +832,7 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.String & Schema.Attribute.Required;
-    icon: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
+    icon_class: Schema.Attribute.String & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     is_show_home: Schema.Attribute.Boolean &
@@ -897,10 +895,10 @@ export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url_facebook: Schema.Attribute.String & Schema.Attribute.Required;
-    url_linkedin: Schema.Attribute.String & Schema.Attribute.Required;
-    url_vimeo: Schema.Attribute.String & Schema.Attribute.Required;
-    url_x: Schema.Attribute.String & Schema.Attribute.Required;
+    url_facebook: Schema.Attribute.String;
+    url_linkedin: Schema.Attribute.String;
+    url_vimeo: Schema.Attribute.String;
+    url_x: Schema.Attribute.String;
   };
 }
 
