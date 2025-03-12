@@ -20,111 +20,33 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="tj-service-2-wrapper">
-                <div class="tj-service-2-item wow fadeInLeft" data-wow-delay=".5s">
+                <div class="tj-service-2-item wow" 
+                     *ngFor="let service of services; let i = index"
+                     [ngClass]="i % 2 === 0 ? 'fadeInLeft' : 'fadeInRight'"
+                     [attr.data-wow-delay]="i < 2 ? '.5s' : '.6s'">
                     <div class="tj-service-2-thumb">
-                        <img src="assets/images/service/tj-service-2-thumb-1.jpg" alt="">
+                        <img [src]="environment.site_url + service.image?.url" 
+                             [alt]="service.title">
                     </div>
                     <div class="tj-service-2-box">
                         <div class="tj-service-2-wrap">
                             <div class="tj-service-2-icon">
-                                <span><i class="flaticon-cleaning"></i></span>
+                                <img [src]="environment.site_url + service.icon?.url" 
+                                    [alt]="service.icon?.name"
+                                    class="service-icon-image">
                             </div>
                             <div class="tj-service-2-number">
-                                <span>01</span>
+                                <span>{{(i + 1).toString().padStart(2, '0')}}</span>
                             </div>
                         </div>
                         <div class="tj-service-2-content">
-                            <h4 class="tj-service-2-title"><a href="service-details.html">Home Cleaning</a></h4>
-                            <p class="tj-service-2-paragraph">Our standard service includes is any dusting,
-                                vacuuming, mopping, surface disinfection</p>
-                            <div class="tj-service-2-button">
-                                <a class="tj-service-2-btn tj-arrow-btn" href="service-details.html">Read More                                         
-                                    <span class="icon_box">
-                                        <i class="icon_first fa-regular fa-arrow-right"></i>
-                                        <i class="icon_second fa-regular fa-arrow-right"></i>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tj-service-2-item wow fadeInRight" data-wow-delay=".5s">
-                    <div class="tj-service-2-thumb">
-                        <img src="assets/images/service/tj-service-2-thumb-2.jpg" alt="">
-                    </div>
-                    <div class="tj-service-2-box">
-                        <div class="tj-service-2-wrap">
-                            <div class="tj-service-2-icon">
-                                <span><i class="flaticon-carpet"></i></span>
-                            </div>
-                            <div class="tj-service-2-number">
-                                <span>02</span>
-                            </div>
-                        </div>
-                        <div class="tj-service-2-content">
-                            <h4 class="tj-service-2-title"><a href="service-details.html">Floor Cleaning</a>
+                            <h4 class="tj-service-2-title">
+                                <a [routerLink]="['/service-details', service.id]">{{service.title}}</a>
                             </h4>
-                            <p class="tj-service-2-paragraph">It's completely up to you many of our clients
-                                prefer to be away can while we clean services</p>
+                            <p class="tj-service-2-paragraph">{{service.description}}</p>
                             <div class="tj-service-2-button">
-                                <a class="tj-service-2-btn tj-arrow-btn" href="service-details.html">Read More                                         
-                                    <span class="icon_box">
-                                        <i class="icon_first fa-regular fa-arrow-right"></i>
-                                        <i class="icon_second fa-regular fa-arrow-right"></i>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tj-service-2-item wow fadeInLeft" data-wow-delay=".6s">
-                    <div class="tj-service-2-thumb">
-                        <img src="assets/images/service/tj-service-2-thumb-3.jpg" alt="">
-                    </div>
-                    <div class="tj-service-2-box">
-                        <div class="tj-service-2-wrap">
-                            <div class="tj-service-2-icon">
-                                <span><i class="flaticon-cleaning-1"></i></span>
-                            </div>
-                            <div class="tj-service-2-number">
-                                <span>03</span>
-                            </div>
-                        </div>
-                        <div class="tj-service-2-content">
-                            <h4 class="tj-service-2-title"><a href="service-details.html">Office Cleaning</a>
-                            </h4>
-                            <p class="tj-service-2-paragraph">All our maids undergo thorough background checks
-                                and training to ensure professionalism</p>
-                            <div class="tj-service-2-button">
-                                <a class="tj-service-2-btn tj-arrow-btn" href="service-details.html">Read More                                         
-                                    <span class="icon_box">
-                                        <i class="icon_first fa-regular fa-arrow-right"></i>
-                                        <i class="icon_second fa-regular fa-arrow-right"></i>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tj-service-2-item wow fadeInRight" data-wow-delay=".6s">
-                    <div class="tj-service-2-thumb">
-                        <img src="assets/images/service/tj-service-2-thumb-4.jpg" alt="">
-                    </div>
-                    <div class="tj-service-2-box">
-                        <div class="tj-service-2-wrap">
-                            <div class="tj-service-2-icon">
-                                <span><i class="flaticon-brush"></i></span>
-                            </div>
-                            <div class="tj-service-2-number">
-                                <span>04</span>
-                            </div>
-                        </div>
-                        <div class="tj-service-2-content">
-                            <h4 class="tj-service-2-title"><a href="service-details.html">Pool Cleaning</a></h4>
-                            <p class="tj-service-2-paragraph">Our standard service includes is any dusting,
-                                vacuuming, mopping, surface disinfection</p>
-                            <div class="tj-service-2-button">
-                                <a class="tj-service-2-btn tj-arrow-btn" href="service-details.html">Read More                                         
+                                <a class="tj-service-2-btn tj-arrow-btn" [routerLink]="['/service-details', service.slug]">
+                                    Read More                                         
                                     <span class="icon_box">
                                         <i class="icon_first fa-regular fa-arrow-right"></i>
                                         <i class="icon_second fa-regular fa-arrow-right"></i>
