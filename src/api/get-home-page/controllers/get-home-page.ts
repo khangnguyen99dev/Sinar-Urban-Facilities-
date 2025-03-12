@@ -76,7 +76,7 @@ export default {
         }
       });
 
-      ctx.body = {
+      ctx.body ={ data: {
         companyInfo,
         services,
         about,
@@ -85,7 +85,8 @@ export default {
         blogs,
         pricingOptions,
         testimonials
-      };
+      }};
+
     } catch (err) {
       ctx.body = {
         error: 'An error occurred while fetching the summary data',

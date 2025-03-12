@@ -9,7 +9,7 @@
         <div class="row align-items-center">
             <div class="col-xl-6 col-lg-5 column_1">
                 <div class="tj-about-thumb wow fadeInLeft" data-wow-delay=".5s">
-                    <img src="assets/images/about/about-thumb.png" alt="Images">
+                    <img [src]="environment.site_url + dataHomePage?.about?.image?.url" alt="Images">
                     <div class="tj-about-thumb-shape">
                         <img class="tj-about-thumb-shape-1" src="assets/images/about/about-thumb-shape-1.png" alt="">
                     </div>
@@ -19,23 +19,23 @@
                 <div class="tj-about-wrapper wow fadeInRightSlow" data-wow-duration="1400ms">
                     <div class="tj-section-wrapper">
                         <h5 class="tj-section-subtitle wow fadeInRight" data-wow-delay=".3s"><span class="one"><i class="flaticon-start"></i></span> About Us</h5>
-                        <h2 class="tj-section-title wow fadeInUp" data-wow-delay=".4s">Let Us Handle the Mess You Enjoy the Clean</h2>
-                        <p class="tj-section-paragraph wow fadeInUp" data-wow-delay=".4s">Deep cleaning services go beyond regular maintenance cleaning to tackle areas that are often overlooked, such as baseboards, behind appliances, inside cabinets, and other hard-to-reach</p>
+                        <h2 class="tj-section-title wow fadeInUp" data-wow-delay=".4s">{{ dataHomePage?.about?.title }}</h2>
+                        <p class="tj-section-paragraph wow fadeInUp" data-wow-delay=".4s">{{ dataHomePage?.about?.description }}</p>
                     </div>
                     <div class="tj-about-box wow fadeInUp" data-wow-delay=".5s">
                         <div class="tj-about-box-thumb">
-                            <img src="assets/images/about/about-box-thumb.png" alt="Images">
+                            <img [src]="environment.site_url + dataHomePage?.about?.image?.url" alt="Images">
                             <div class="tj-about-thumb-paly-btn">
-                                <a class="popup-videos-button" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=MLpWrANjFbI">
+                                <a class="popup-videos-button" data-autoplay="true" data-vbtype="video" href="{{ dataHomePage?.about?.url_video }}">
                                     <i class="flaticon-play"></i>
                                 </a>
                             </div>
                         </div>
                         <div class="tj-about-box-thumb-list">
                             <ul>
-                                <li><span><i class="fa-regular fa-angle-right"></i></span> We Don't Cut Corners, We Clean Them</li>
-                                <li><span><i class="fa-regular fa-angle-right"></i></span> Bringing Freshness to Your Doorstep</li>
-                                <li><span><i class="fa-regular fa-angle-right"></i></span> Where Cleanliness Meets Perfection</li>
+                                <li><span><i class="fa-regular fa-angle-right"></i></span> {{ dataHomePage?.about?.title_card_info_1 }}</li>
+                                <li><span><i class="fa-regular fa-angle-right"></i></span> {{ dataHomePage?.about?.title_card_info_2 }}</li>
+                                <li><span><i class="fa-regular fa-angle-right"></i></span> {{ dataHomePage?.about?.title_card_info_3 }}</li>
                             </ul>
                         </div>
                     </div>
@@ -47,11 +47,11 @@
                         </div>
                         <div class="tj-about-member-details">
                             <div class="tj-about-member-details-img">
-                                <img src="assets/images/about/about-member.png" alt="Images">
+                                <img [src]="environment.site_url + dataHomePage?.about?.icon_image?.url" alt="Images">
                             </div>
                             <div class="tj-about-member-details-content">
-                                <h6 class="tj-about-member-tittle">Brooklyn Simmons</h6>
-                                <p class="tj-about-member-paragraph">Co-Founder</p>
+                                <h6 class="tj-about-member-tittle">{{ dataHomePage?.about?.icon_title }}</h6>
+                                <p class="tj-about-member-paragraph">{{ dataHomePage?.about?.icon_description }}</p>
                             </div>
                         </div>
                     </div>

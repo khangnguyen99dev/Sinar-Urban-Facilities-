@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SliderComponent } from '../../components/slider/slider.component';
 import { AboutMainComponent } from '../../components/about-main/about-main.component';
 import { ServiceMainComponent } from '../../components/service-main/service-main.component';
@@ -10,6 +10,8 @@ import { PortfolioComponent } from '../../components/portfolio/portfolio.compone
 import { ContactMainComponent } from '../../components/contact-main/contact-main.component';
 import { TestimonialComponent } from '../../components/testimonial/testimonial.component';
 import { BlogMainComponent } from '../../components/blog-main/blog-main.component';
+import { ApiService } from '../../services/api.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -30,6 +32,22 @@ import { BlogMainComponent } from '../../components/blog-main/blog-main.componen
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  dataHomePage: any;
+  environment = environment;
+  constructor(
+    private apiService: ApiService
+  ) {}
 
+  ngOnInit() {  
+    this.fetchHomePageData();
+  }
+  async fetchHomePageData() {
+    try {
+      const res = await this.apiService.get('get-home-page');
+      this.dataHomePage = res;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
 }
