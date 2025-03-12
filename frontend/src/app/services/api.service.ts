@@ -10,11 +10,11 @@ export class ApiService {
 
     constructor() { }
 
-    async get(url: string, params?: string): Promise<any[]> {
+    async get(url: string, token: boolean = false, params?: string): Promise<any[]> {
         const defaultParams = 'populate=*&sort=createdAt:desc&pagination[limit]=5';
         const res = await axios.get(`${this.url}/${url}${params ? `?${params}` : `?${defaultParams}`}`, {
             headers: {
-                'Authorization': `Bearer ${environment.api_token_identifier}`
+                'Authorization': token ? `Bearer ${environment.api_token_identifier}` : ''
             }
         });
         return res.data;
