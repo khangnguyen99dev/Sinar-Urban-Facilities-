@@ -20,7 +20,7 @@ export class ServiceComponent implements OnInit {
 
   async fetchServices() {
     try {
-      const data = await this.apiService.get('services', true, 'populate=*&sort=createdAt:desc&pagination[limit]=4');
+      const data = await this.apiService.get('services', 'populate=*&sort=createdAt:desc&pagination[limit]=4');
       this.services = data;
       console.log('Services:', this.services);
     } catch (error) {

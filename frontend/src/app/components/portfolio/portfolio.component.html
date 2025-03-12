@@ -23,13 +23,13 @@
                 <div class="tj-portfolio-slider wow fadeInUp" data-wow-delay=".4s">
                     <div class="tj-portfolio-active swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="tj-portfolio-wrapper swiper-slide">
+                            <div *ngFor="let item of dataHomePage?.portfolio" class="tj-portfolio-wrapper swiper-slide">
                                 <div class="tj-portfolio-thumb">
-                                    <img src="assets/images/portfolio/portfolio-img-1.jpg" alt="Images">
+                                    <img [src]="environment.site_url + item.image?.url" alt="Images">
                                     <div class="tj-portfolio-wrap">
                                         <div class="tj-portfolio-content">
-                                            <h4 class="tj-portfolio-title"><a href="portfolio-details.html">Specialized Cleaning</a></h4>
-                                            <p class="tj-portfolio-paragraph">Saint, UAS</p>
+                                            <h4 class="tj-portfolio-title"><a href="portfolio-details.html">{{ item.title_paragraph_1 }}</a></h4>
+                                            <p class="tj-portfolio-paragraph">{{ item.location }}</p>
                                         </div>
                                         <div class="tj-portfolio-pluse-button">
                                             <a class="tj-portfolio-pluse-btn" href="portfolio-details.html"><i class="fa-solid fa-plus"></i></a>
@@ -37,7 +37,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tj-portfolio-wrapper swiper-slide">
+                            <!-- <div class="tj-portfolio-wrapper swiper-slide">
                                 <div class="tj-portfolio-thumb">
                                     <img src="assets/images/portfolio/portfolio-img-2.jpg" alt="Images">
                                     <div class="tj-portfolio-wrap">

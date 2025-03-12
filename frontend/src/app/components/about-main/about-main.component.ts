@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, Input } from '@angular/core';
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-about-main',
   standalone: true,
@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './about-main.component.scss'
 })
 export class AboutMainComponent {
-
+  @Input() dataHomePage: any;
+  environment = environment;
 }
