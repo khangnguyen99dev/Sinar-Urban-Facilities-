@@ -12,11 +12,18 @@ export class ApiService {
 
     async get(url: string, token: boolean = false, params?: string): Promise<any[]> {
         const defaultParams = 'populate=*&sort=createdAt:desc&pagination[limit]=5';
-        const res = await axios.get(`${this.url}/${url}${params ? `?${params}` : `?${defaultParams}`}`, {
-            headers: {
-                'Authorization': token ? `Bearer ${environment.api_token_identifier}` : ''
-            }
-        });
-        return res.data;
+        try {
+            const res = await axios.get(`${this.url}/${url}${params ? `?${params}` : `?${defaultParams}`}`, {
+                headers: {
+                    'Authorization': token ? `Bearer ${environment.api_token_identifier}` : '',
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json'
+                }
+            });
+            return res.data.data;
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            throw error;
+        }
     }
 }
