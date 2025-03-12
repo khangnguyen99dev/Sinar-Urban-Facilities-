@@ -10,7 +10,7 @@ export class ApiService {
 
     constructor() { }
 
-    async get(url: string, token: boolean = false, params?: string): Promise<any[]> {
+    async get(url: string, params?: string, token: boolean = false): Promise<any[]> {
         const defaultParams = 'populate=*&sort=createdAt:desc&pagination[limit]=5';
         try {
             const res = await axios.get(`${this.url}/${url}${params ? `?${params}` : `?${defaultParams}`}`, {
