@@ -27,7 +27,7 @@ export class TeamComponent implements OnInit {
 
   async loadData() {
     const params = "populate=*&sort=createdAt:desc&pagination[limit]=8";
-    this.apiService.get('teams', false, params).then((data: any) => {
+    this.apiService.get('teams', params, false).then((data: any) => {
       this.data = data;
     });
   }

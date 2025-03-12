@@ -61,11 +61,11 @@ export class TeamDetailComponent implements OnInit, OnDestroy {
   async loadData() {
     const params = `filters[slug][$eq]=${this.slug}&populate=*`;
     try {
-      const response = await this.apiService.get('teams', false, params) as any;
+      const response = await this.apiService.get('teams', params, false) as any;
       this.data = response[0] as Team;
 
       const paramsTeam = `filters[slug][$ne]=${this.slug}&populate=*&pagination[limit]=4`;
-      const responseTeam = await this.apiService.get('teams', false, paramsTeam) as any;
+      const responseTeam = await this.apiService.get('teams', paramsTeam, false) as any;
       this.teams = responseTeam as Team[];
     } catch (error) {
       console.log(error);
