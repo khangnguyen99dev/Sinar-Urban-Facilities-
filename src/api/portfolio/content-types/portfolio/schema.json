@@ -4,20 +4,21 @@
   "info": {
     "singularName": "portfolio",
     "pluralName": "portfolios",
-    "displayName": "Portfolio"
+    "displayName": "Portfolio",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "title_paragraph_1": {
       "type": "string",
@@ -35,40 +36,38 @@
       "type": "text",
       "required": true
     },
-    "service_title_1": {
-      "type": "string",
-      "required": true
-    },
-    "service_title_2": {
-      "type": "string",
-      "required": true
-    },
-    "service_title_3": {
-      "type": "string",
-      "required": true
-    },
-    "service_title_4": {
-      "type": "string",
-      "required": true
-    },
     "sub_image_1": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "sub_image_2": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false,
+      ]
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service"
+    },
+    "is_show_home": {
+      "type": "boolean",
+      "default": false,
       "required": true
     }
   }

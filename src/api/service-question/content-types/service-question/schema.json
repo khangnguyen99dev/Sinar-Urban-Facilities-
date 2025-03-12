@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "questions",
+  "collectionName": "service_questions",
   "info": {
-    "singularName": "question",
-    "pluralName": "questions",
-    "displayName": "Question",
-    "description": ""
+    "singularName": "service-question",
+    "pluralName": "service-questions",
+    "displayName": "ServiceQuestion"
   },
   "options": {
     "draftAndPublish": true

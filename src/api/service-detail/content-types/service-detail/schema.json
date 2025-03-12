@@ -52,15 +52,15 @@
         "files"
       ]
     },
-    "question": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::question.question"
-    },
     "service_qualities": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::service-quality.service-quality"
+    },
+    "service_questions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service-question.service-question"
     }
   }
 }

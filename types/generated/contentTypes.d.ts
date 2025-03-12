@@ -603,42 +603,10 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiImpressiveCaseStudyImpressiveCaseStudy
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'impressive_case_studies';
-  info: {
-    displayName: 'ImpressiveCaseStudy';
-    pluralName: 'impressive-case-studies';
-    singularName: 'impressive-case-study';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    image: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::impressive-case-study.impressive-case-study'
-    > &
-      Schema.Attribute.Private;
-    location: Schema.Attribute.String & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    url: Schema.Attribute.String;
-  };
-}
-
 export interface ApiPortfolioPortfolio extends Struct.CollectionTypeSchema {
   collectionName: 'portfolios';
   info: {
+    description: '';
     displayName: 'Portfolio';
     pluralName: 'portfolios';
     singularName: 'portfolio';
@@ -654,17 +622,18 @@ export interface ApiPortfolioPortfolio extends Struct.CollectionTypeSchema {
     description_paragraph_2: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
+    is_show_home: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::portfolio.portfolio'
     > &
       Schema.Attribute.Private;
+    location: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    service_title_1: Schema.Attribute.String & Schema.Attribute.Required;
-    service_title_2: Schema.Attribute.String & Schema.Attribute.Required;
-    service_title_3: Schema.Attribute.String & Schema.Attribute.Required;
-    service_title_4: Schema.Attribute.String & Schema.Attribute.Required;
+    services: Schema.Attribute.Relation<'oneToMany', 'api::service.service'>;
     sub_image_1: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     sub_image_2: Schema.Attribute.Media<
@@ -679,13 +648,14 @@ export interface ApiPortfolioPortfolio extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiQuestionQuestion extends Struct.CollectionTypeSchema {
-  collectionName: 'questions';
+export interface ApiPricingOptionPricingOption
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'pricing_options';
   info: {
     description: '';
-    displayName: 'Question';
-    pluralName: 'questions';
-    singularName: 'question';
+    displayName: 'PricingOption';
+    pluralName: 'pricing-options';
+    singularName: 'pricing-option';
   };
   options: {
     draftAndPublish: true;
@@ -694,11 +664,46 @@ export interface ApiQuestionQuestion extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    is_special: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::question.question'
+      'api::pricing-option.pricing-option'
+    > &
+      Schema.Attribute.Private;
+    price: Schema.Attribute.BigInteger & Schema.Attribute.Required;
+    pricing_plans: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pricing-plan.pricing-plan'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPricingPlanPricingPlan extends Struct.CollectionTypeSchema {
+  collectionName: 'pricing_plans';
+  info: {
+    displayName: 'PricingPlan';
+    pluralName: 'pricing-plans';
+    singularName: 'pricing-plan';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pricing-plan.pricing-plan'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -737,10 +742,13 @@ export interface ApiServiceDetailServiceDetail
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    question: Schema.Attribute.Relation<'oneToMany', 'api::question.question'>;
     service_qualities: Schema.Attribute.Relation<
       'oneToMany',
       'api::service-quality.service-quality'
+    >;
+    service_questions: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::service-question.service-question'
     >;
     title_paragraph_1: Schema.Attribute.String & Schema.Attribute.Required;
     title_paragraph_2: Schema.Attribute.String;
@@ -769,6 +777,36 @@ export interface ApiServiceQualityServiceQuality
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::service-quality.service-quality'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiServiceQuestionServiceQuestion
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'service_questions';
+  info: {
+    displayName: 'ServiceQuestion';
+    pluralName: 'service-questions';
+    singularName: 'service-question';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::service-question.service-question'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -808,6 +846,7 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
       'api::service.service'
     > &
       Schema.Attribute.Private;
+    price: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
     service_detail: Schema.Attribute.Relation<
       'oneToOne',
@@ -1413,11 +1452,12 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::company-info.company-info': ApiCompanyInfoCompanyInfo;
       'api::global.global': ApiGlobalGlobal;
-      'api::impressive-case-study.impressive-case-study': ApiImpressiveCaseStudyImpressiveCaseStudy;
       'api::portfolio.portfolio': ApiPortfolioPortfolio;
-      'api::question.question': ApiQuestionQuestion;
+      'api::pricing-option.pricing-option': ApiPricingOptionPricingOption;
+      'api::pricing-plan.pricing-plan': ApiPricingPlanPricingPlan;
       'api::service-detail.service-detail': ApiServiceDetailServiceDetail;
       'api::service-quality.service-quality': ApiServiceQualityServiceQuality;
+      'api::service-question.service-question': ApiServiceQuestionServiceQuestion;
       'api::service.service': ApiServiceService;
       'api::team.team': ApiTeamTeam;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
