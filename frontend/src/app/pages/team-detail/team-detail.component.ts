@@ -5,22 +5,6 @@ import { environment } from '../../../environments/environment';
 import { NgFor, NgIf } from '@angular/common';
 import { Subscription } from 'rxjs';
 
-interface Team {
-  name: string;
-  role_name: string;
-  phone: string;
-  url_facebook: string;
-  url_x: string;
-  url_linkedin: string;
-  url_vimeo: string;
-  clients_satisfaction: string;
-  cleaning_services: string;
-  email: string;
-  description: string;
-  slug: string;
-  avatar: { url: string } | null;
-  services: { title: string; }[];
-}
 
 @Component({
   selector: 'app-team-detail',
@@ -35,9 +19,9 @@ interface Team {
 })
 export class TeamDetailComponent implements OnInit, OnDestroy {
   slug: string = '';
-  data!: Team;
+  data!: any;
   url_image = environment.site_url;
-  teams: Team[] = [];
+  teams: any[] = [];
   private routeSub!: Subscription;
 
   constructor(
@@ -62,11 +46,11 @@ export class TeamDetailComponent implements OnInit, OnDestroy {
     const params = `filters[slug][$eq]=${this.slug}&populate=*`;
     try {
       const response = await this.apiService.get('teams', params, false) as any;
-      this.data = response[0] as Team;
+      this.data = response[0] ;
 
       const paramsTeam = `filters[slug][$ne]=${this.slug}&populate=*&pagination[limit]=4`;
       const responseTeam = await this.apiService.get('teams', paramsTeam, false) as any;
-      this.teams = responseTeam as Team[];
+      this.teams = responseTeam;
     } catch (error) {
       console.log(error);
     }

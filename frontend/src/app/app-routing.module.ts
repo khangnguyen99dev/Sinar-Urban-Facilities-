@@ -31,7 +31,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'portfolio-details',
+    path: 'portfolio-detail/:slug',
     loadChildren: () => import('./pages/portfolio-detail/portfolio-detail.module').then(m => m.PortfolioDetailModule),
     data: {
       layout: 'app',

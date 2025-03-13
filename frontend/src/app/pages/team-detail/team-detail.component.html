@@ -25,54 +25,54 @@
         <div class="row">
             <div class="col-xl-6 col-lg-5">
                 <div class="tj-team-details-thumb wow fadeInLeft" data-wow-delay=".5s">
-                    <img [src]="url_image + (data.avatar?.url || '')" alt="Images">
+                    <img [src]="url_image + (data?.avatar?.url ?? '')" alt="Images">
                 </div>
 
             </div>
             <div class="col-xl-6 col-lg-7 col-md-11">
                 <div class="tj-team-details-wrapper">
                     <div class="tj-team-details-content wow fadeInUp" data-wow-delay=".3s">
-                        <h2 class="tj-team-details-title tj-char-animation">{{data.name}}</h2>
-                        <h6 class="tj-team-details-subtitle">{{data.role_name}}</h6>
-                        <p class="tj-team-details-paragraph">{{data.description}}</p>
+                        <h2 class="tj-team-details-title tj-char-animation">{{data?.name}}</h2>
+                        <h6 class="tj-team-details-subtitle">{{data?.role_name}}</h6>
+                        <p class="tj-team-details-paragraph">{{data?.description}}</p>
                     </div>
                     <div class="tj-service-details-check-list tj-portfolio-details-bottom-list tj-team-details-list wow fadeInUp"
                         data-wow-delay=".4s">
                         <ul>
-                            <li *ngFor="let service of data.services">
+                            <li *ngFor="let service of data?.services">
                                 <span></span>
-                                {{service.title}}
+                                {{service?.title}}
                             </li>
                         </ul>
                     </div>
                     <div class="tj-team-details-address wow fadeInUp" data-wow-delay=".5s">
                         <div class="tj-team-details-address-item">
                             <div class="tj-team-details-address-icon">
-                                <a [href]="'mailto:' + data.email"><i class="fa-sharp fa-regular fa-envelope"></i></a>
+                                <a [href]="'mailto:' + data?.email"><i class="fa-sharp fa-regular fa-envelope"></i></a>
                             </div>
                             <div class="tj-team-details-address-content">
                                 <span>Email Address</span>
-                                <a [href]="'mailto:' + data.email">{{data.email}}</a>
+                                <a [href]="'mailto:' + data?.email">{{data?.email}}</a>
                             </div>
                         </div>
                         <div class="tj-team-details-address-item">
                             <div class="tj-team-details-address-icon">
-                                <a [href]="'tel:' + data.phone"><i class="flaticon-call"></i></a>
+                                <a [href]="'tel:' + data?.phone"><i class="flaticon-call"></i></a>
                             </div>
                             <div class="tj-team-details-address-content">
                                 <span>Phone Number</span>
-                                <a [href]="'tel:' + data.phone">{{data.phone}}</a>
+                                <a [href]="'tel:' + data?.phone">{{data?.phone}}</a>
                             </div>
                         </div>
                     </div>
                     <div class="tj-team-details-address-social wow fadeInUp" data-wow-delay=".6s">
                         <ul>
-                            <li *ngIf="data.url_facebook"><a [href]="data.url_facebook"><i
+                            <li *ngIf="data?.url_facebook"><a [href]="data?.url_facebook"><i
                                         class="fa-brands fa-facebook-f fa-fw"></i></a></li>
-                            <li *ngIf="data.url_x"><a [href]="data.url_x"><i class="fa-brands fa-twitter"></i></a></li>
-                            <li *ngIf="data.url_linkedin"><a [href]="data.url_linkedin"><i
+                            <li *ngIf="data?.url_x"><a [href]="data?.url_x"><i class="fa-brands fa-twitter"></i></a></li>
+                            <li *ngIf="data?.url_linkedin"><a [href]="data?.url_linkedin"><i
                                         class="fa-brands fa-linkedin-in"></i></a></li>
-                            <li *ngIf="data.url_vimeo"><a [href]="data.url_vimeo"><i
+                            <li *ngIf="data?.url_vimeo"><a [href]="data?.url_vimeo"><i
                                         class="fa-brands fa-vimeo-v"></i></a></li>
                         </ul>
                     </div>
@@ -83,10 +83,10 @@
                             <div class="tj-team-details-progress progress">
                                 <div class="tj-team-details-progress-bar progress-bar wow slideInLeft"
                                     data-wow-duration="1s" data-wow-delay=".8s" role="progressbar"
-                                    aria-label="Example with label" [style.width.%]="data.clients_satisfaction"
-                                    [attr.aria-valuenow]="data.clients_satisfaction" aria-valuemin="0"
+                                    aria-label="Example with label" [style.width.%]="data?.clients_satisfaction"
+                                    [attr.aria-valuenow]="data?.clients_satisfaction" aria-valuemin="0"
                                     aria-valuemax="100"><span
-                                        class="progresscounter">{{data.clients_satisfaction}}%</span></div>
+                                        class="progresscounter">{{data?.clients_satisfaction}}%</span></div>
                             </div>
                         </div>
                         <div class="tj-team-details-progress-wrap">
@@ -94,9 +94,9 @@
                             <div class="tj-team-details-progress progress">
                                 <div class="tj-team-details-progress-bar progress-bar wow slideInLeft"
                                     data-wow-duration="1s" data-wow-delay=".8s" role="progressbar"
-                                    aria-label="Example with label" [style.width.%]="data.cleaning_services"
-                                    [attr.aria-valuenow]="data.cleaning_services" aria-valuemin="0" aria-valuemax="100">
-                                    <span class="progresscounter">{{data.cleaning_services}}%</span></div>
+                                    aria-label="Example with label" [style.width.%]="data?.cleaning_services"
+                                    [attr.aria-valuenow]="data?.cleaning_services" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="progresscounter">{{data?.cleaning_services}}%</span></div>
                             </div>
                         </div>
                     </div>
@@ -114,7 +114,7 @@
             <div *ngFor="let team of teams" class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                 <div class="tj-team-wrapper wow fadeInUp" data-wow-delay=".3s">
                     <div class="tj-team-thumb">
-                        <a [routerLink]="['/team-detail', team.slug]"><img [src]="url_image + (team.avatar?.url || '')" alt=""></a>
+                        <a [routerLink]="['/team-detail', team.slug]"><img [src]="url_image + (team?.avatar?.url ?? '')" alt=""></a>
                     </div>
                     <div class="tj-team-social">
                         <div class="tj-team-btn">
@@ -130,11 +130,11 @@
                         </div>
                     </div>
                     <div class="tj-team-content">
-                        <h4 class="tj-team-title"><a [routerLink]="'/team-detail/' + team.slug">{{team.name}}</a></h4>
-                        <p class="tj-team-paragraph">{{team.role_name}}</p>
+                        <h4 class="tj-team-title"><a [routerLink]="'/team-detail/' + team.slug">{{team?.name}}</a></h4>
+                        <p class="tj-team-paragraph">{{team?.role_name}}</p>
                         <div class="tj-team-button">
-                            <a class="tj-team-call-btn" [href]="'tel:' + team.phone"><i
-                                    class="fa-solid fa-phone-volume"></i> {{team.phone}}</a>
+                            <a class="tj-team-call-btn" [href]="'tel:' + team?.phone"><i
+                                    class="fa-solid fa-phone-volume"></i> {{team?.phone}}</a>
                         </div>
                     </div>
                 </div>
