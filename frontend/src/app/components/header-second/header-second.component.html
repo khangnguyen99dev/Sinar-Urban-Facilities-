@@ -7,9 +7,9 @@
                     <div class="tj-header-2-top-wrapper">
                         <div class="tj-header-2-top-information">
                             <ul>
-                                <li><a href="tel:+208555-0112"><i class="flaticon-call"></i> (208) 555-0112</a></li>
-                                <li><a href="tel:+208555-0112"><i class="flaticon-email-2"></i> helpcleaning&#64;gmail.com</a></li>
-                                <li><span><i class="flaticon-location"></i> Shiloh, Hawaii 81063</span></li>
+                                <li><a href="tel:+{{ CompanyInfo?.call_us }}"><i class="flaticon-call"></i> {{ CompanyInfo?.call_us }}</a></li>
+                                <li><a href="tel:+{{ CompanyInfo?.email_us }}"><i class="flaticon-email-2"></i> {{ CompanyInfo?.email_us }}</a></li>
+                                <li><span><i class="flaticon-location"></i> {{ CompanyInfo?.location }}</span></li>
                             </ul>
                         </div>
                         <div class="tj-header-2-top-right">
@@ -22,10 +22,10 @@
                             </div>
                             <div class="tj-header-2-top-social d-none d-lg-block">
                                 <ul>
-                                    <li><a href="#"><i class="fa-brands fa-facebook-f fa-fw"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                    <li><a href="{{ CompanyInfo?.url_facebook }}"><i class="fa-brands fa-facebook-f fa-fw"></i></a></li>
+                                    <li><a href="{{ CompanyInfo?.url_x }}"><i class="fa-brands fa-twitter"></i></a></li>
+                                    <li><a href="{{ CompanyInfo?.url_linkedin }}"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                    <li><a href="{{ CompanyInfo?.url_linkedin }}"><i class="fa-brands fa-instagram"></i></a></li>
                                 </ul>
                             </div>
                         </div>

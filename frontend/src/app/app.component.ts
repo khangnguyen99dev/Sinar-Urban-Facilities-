@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ScriptService } from './services/script.service';
 import { Router, NavigationEnd } from '@angular/router';
+import { ApiService } from './services/api.service';
 
 declare var $: any;
 declare var WOW: any;
@@ -13,10 +14,11 @@ declare var WOW: any;
 export class AppComponent implements OnInit {
   title = 'frontend';
   isHeaderSecond: boolean = false;
-  constructor(private scriptService: ScriptService, private router: Router) {}
+  CompanyInfo: any;
+  constructor(private scriptService: ScriptService, private router: Router, private apiService: ApiService) {}
 
   ngOnInit() {
-
+    this.fetchCompanyInfo();
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.isHeaderSecond = event.url !== '/home' && event.url !== '/';
@@ -53,5 +55,13 @@ export class AppComponent implements OnInit {
       // initialize Nice Select
       $('select').niceSelect();
     });
+  }
+  async fetchCompanyInfo() {
+    try {
+      const res = await this.apiService.get('company-infos', 'populate=*&sort=createdAt:desc&pagination[limit]=1');
+      this.CompanyInfo = res?.[0];
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   }
 }

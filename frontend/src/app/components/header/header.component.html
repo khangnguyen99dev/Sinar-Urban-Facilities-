@@ -15,7 +15,7 @@
                                 </div>
                                 <div class="infos-content">
                                     <span class="label">Call Us</span>
-                                    <span><a href="tel:+208555-0112">(208) 555-0112</a></span>
+                                    <span><a href="tel:+{{ CompanyInfo?.call_us }}">{{ CompanyInfo?.call_us }}</a></span>
                                 </div>
                             </div>
                             <div class="infos-item">
@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="infos-content">
                                     <span class="label">Email Us</span>
-                                    <span><a href="mailto:helpcleaning&#64;gmail.com">helpcleaning&#64;gmail.com</a></span>
+                                    <span><a href="mailto:{{ CompanyInfo?.email_us }}">{{ CompanyInfo?.email_us }}</a></span>
                                 </div>
                             </div>
                             <div class="infos-item">
@@ -33,16 +33,16 @@
                                 </div>
                                 <div class="infos-content">
                                     <span class="label">Email Us</span>
-                                    <span class="location">Shiloh, Hawaii 81063</span>
+                                    <span class="location">{{ CompanyInfo?.location }}</span>
                                 </div>
                             </div>
                         </div>
                         <div class="tj-header-top-social d-none d-lg-block">
                             <ul>
-                                <li><a href="#"><i class="fa-brands fa-facebook-f fa-fw"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-vimeo-v"></i></a></li>
+                                <li><a href="{{ CompanyInfo?.url_facebook }}"><i class="fa-brands fa-facebook-f fa-fw"></i></a></li>
+                                <li><a href="{{ CompanyInfo?.url_x }}"><i class="fa-brands fa-twitter"></i></a></li>
+                                <li><a href="{{ CompanyInfo?.url_linkedin }}"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                <li><a href="{{ CompanyInfo?.url_vimeo }}"><i class="fa-brands fa-vimeo-v"></i></a></li>
                             </ul>
                         </div>
                     </div>
