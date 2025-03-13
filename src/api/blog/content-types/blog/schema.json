@@ -44,6 +44,11 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "blog_detail": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::blog-detail.blog-detail"
     }
   }
 }

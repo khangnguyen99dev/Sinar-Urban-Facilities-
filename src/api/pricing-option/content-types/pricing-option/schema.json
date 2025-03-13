@@ -14,20 +14,6 @@
     "title": {
       "type": "string",
       "required": true
-    },
-    "price": {
-      "type": "biginteger",
-      "required": true
-    },
-    "pricing_plans": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::pricing-plan.pricing-plan"
-    },
-    "is_special": {
-      "type": "boolean",
-      "default": false,
-      "required": true
     }
   }
 }

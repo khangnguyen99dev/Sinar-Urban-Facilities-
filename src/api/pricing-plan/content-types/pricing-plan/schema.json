@@ -4,7 +4,8 @@
   "info": {
     "singularName": "pricing-plan",
     "pluralName": "pricing-plans",
-    "displayName": "PricingPlan"
+    "displayName": "PricingPlan",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,20 @@
     "title": {
       "type": "string",
       "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "is_special": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "pricing_options": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pricing-option.pricing-option"
     }
   }
 }

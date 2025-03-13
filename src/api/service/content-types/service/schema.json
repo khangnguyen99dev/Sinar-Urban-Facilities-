@@ -11,6 +11,21 @@
     "draftAndPublish": true
   },
   "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "biginteger"
+    },
+    "icon_class": {
+      "type": "string",
+      "required": true
+    },
     "image": {
       "type": "media",
       "multiple": false,
@@ -19,14 +34,6 @@
         "images",
         "files"
       ]
-    },
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "description": {
-      "type": "string",
-      "required": true
     },
     "slug": {
       "type": "string",
@@ -41,13 +48,6 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::service-detail.service-detail"
-    },
-    "price": {
-      "type": "biginteger"
-    },
-    "icon_class": {
-      "type": "string",
-      "required": true
     }
   }
 }

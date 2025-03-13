@@ -468,6 +468,38 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBlogDetailBlogDetail extends Struct.CollectionTypeSchema {
+  collectionName: 'blog_details';
+  info: {
+    displayName: 'BlogDetail';
+    pluralName: 'blog-details';
+    singularName: 'blog-detail';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description_paragraph: Schema.Attribute.Text;
+    image_1_paragraph: Schema.Attribute.Media<'images' | 'files'>;
+    image_2_paragraph: Schema.Attribute.Media<'images' | 'files'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::blog-detail.blog-detail'
+    > &
+      Schema.Attribute.Private;
+    note_title: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    title_paragraph: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   collectionName: 'blogs';
   info: {
@@ -480,6 +512,10 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    blog_detail: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::blog-detail.blog-detail'
+    >;
     count_comment: Schema.Attribute.BigInteger & Schema.Attribute.Required;
     create_by_name: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
@@ -570,6 +606,38 @@ export interface ApiCompanyInfoCompanyInfo extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiContactFormContactForm extends Struct.CollectionTypeSchema {
+  collectionName: 'contact_forms';
+  info: {
+    displayName: 'ContactForm';
+    pluralName: 'contact-forms';
+    singularName: 'contact-form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact-form.contact-form'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    phone: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    subject: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -602,6 +670,45 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiPortfolioDetailPortfolioDetail
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'portfolio_details';
+  info: {
+    displayName: 'PortfolioDetail';
+    pluralName: 'portfolio-details';
+    singularName: 'portfolio-detail';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description_paragraph_1: Schema.Attribute.Text & Schema.Attribute.Required;
+    description_paragraph_2: Schema.Attribute.Text & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::portfolio-detail.portfolio-detail'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    services: Schema.Attribute.Relation<'oneToMany', 'api::service.service'>;
+    sub_image_1: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    sub_image_2: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
+    title_paragraph_1: Schema.Attribute.String & Schema.Attribute.Required;
+    title_paragraph_2: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPortfolioPortfolio extends Struct.CollectionTypeSchema {
   collectionName: 'portfolios';
   info: {
@@ -617,8 +724,6 @@ export interface ApiPortfolioPortfolio extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description_paragraph_1: Schema.Attribute.Text & Schema.Attribute.Required;
-    description_paragraph_2: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     is_show_home: Schema.Attribute.Boolean &
@@ -631,16 +736,13 @@ export interface ApiPortfolioPortfolio extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     location: Schema.Attribute.String & Schema.Attribute.Required;
+    portfolio_detail: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::portfolio-detail.portfolio-detail'
+    >;
     publishedAt: Schema.Attribute.DateTime;
-    services: Schema.Attribute.Relation<'oneToMany', 'api::service.service'>;
-    sub_image_1: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
-    sub_image_2: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    > &
-      Schema.Attribute.Required;
-    title_paragraph_1: Schema.Attribute.String & Schema.Attribute.Required;
-    title_paragraph_2: Schema.Attribute.String & Schema.Attribute.Required;
+    slug: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -663,20 +765,12 @@ export interface ApiPricingOptionPricingOption
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    is_special: Schema.Attribute.Boolean &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::pricing-option.pricing-option'
     > &
       Schema.Attribute.Private;
-    price: Schema.Attribute.BigInteger & Schema.Attribute.Required;
-    pricing_plans: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::pricing-plan.pricing-plan'
-    >;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -688,6 +782,7 @@ export interface ApiPricingOptionPricingOption
 export interface ApiPricingPlanPricingPlan extends Struct.CollectionTypeSchema {
   collectionName: 'pricing_plans';
   info: {
+    description: '';
     displayName: 'PricingPlan';
     pluralName: 'pricing-plans';
     singularName: 'pricing-plan';
@@ -699,12 +794,20 @@ export interface ApiPricingPlanPricingPlan extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    is_special: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::pricing-plan.pricing-plan'
     > &
       Schema.Attribute.Private;
+    price: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    pricing_options: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pricing-option.pricing-option'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -905,6 +1008,7 @@ export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
 export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
   collectionName: 'testimonials';
   info: {
+    description: '';
     displayName: 'Testimonial';
     pluralName: 'testimonials';
     singularName: 'testimonial';
@@ -928,7 +1032,15 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    rating: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    rating: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 1;
+        },
+        number
+      >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1447,10 +1559,13 @@ declare module '@strapi/strapi' {
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::about.about': ApiAboutAbout;
       'api::author.author': ApiAuthorAuthor;
+      'api::blog-detail.blog-detail': ApiBlogDetailBlogDetail;
       'api::blog.blog': ApiBlogBlog;
       'api::category.category': ApiCategoryCategory;
       'api::company-info.company-info': ApiCompanyInfoCompanyInfo;
+      'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::global.global': ApiGlobalGlobal;
+      'api::portfolio-detail.portfolio-detail': ApiPortfolioDetailPortfolioDetail;
       'api::portfolio.portfolio': ApiPortfolioPortfolio;
       'api::pricing-option.pricing-option': ApiPricingOptionPricingOption;
       'api::pricing-plan.pricing-plan': ApiPricingPlanPricingPlan;

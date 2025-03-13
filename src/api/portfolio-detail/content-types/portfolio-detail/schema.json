@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portfolio_details",
+  "info": {
+    "singularName": "portfolio-detail",
+    "pluralName": "portfolio-details",
+    "displayName": "PortfolioDetail"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title_paragraph_1": {
+      "type": "string",
+      "required": true
+    },
+    "description_paragraph_1": {
+      "type": "text",
+      "required": true
+    },
+    "title_paragraph_2": {
+      "type": "string",
+      "required": true
+    },
+    "description_paragraph_2": {
+      "type": "text",
+      "required": true
+    },
+    "sub_image_1": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "sub_image_2": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service"
+    }
+  }
+}

@@ -76,6 +76,13 @@ export default {
         }
       });
 
+      const pricingPlans = await strapi.query('api::pricing-plan.pricing-plan').findMany({
+        where: { published_at: { $not: null } },
+        populate: {
+          "pricing_options": true
+        }
+      });
+
       ctx.body ={ data: {
         companyInfo,
         services,
@@ -84,7 +91,8 @@ export default {
         portfolio,
         blogs,
         pricingOptions,
-        testimonials
+        testimonials,
+        pricingPlans
       }};
 
     } catch (err) {
