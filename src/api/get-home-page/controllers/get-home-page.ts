@@ -9,7 +9,8 @@ export default {
         where: { published_at: { $not: null } },
         populate: { 
           "image": true,
-          "icon_image": true
+          "icon_image": true,
+          "founder_image": true,
          }
       });
 

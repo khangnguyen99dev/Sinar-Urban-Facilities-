@@ -22,12 +22,12 @@
 <!-- hamburger end -->
 
 <!-- Header -->
-<app-header *ngIf="!isHeaderSecond"></app-header>
-<app-header-second *ngIf="isHeaderSecond"></app-header-second>
+<app-header [CompanyInfo] ='CompanyInfo' *ngIf="!isHeaderSecond"></app-header>
+<app-header-second [CompanyInfo] ='CompanyInfo' *ngIf="isHeaderSecond"></app-header-second>
 
 <main id="primary" class="site-main">
     <router-outlet></router-outlet>
 </main>
 
 <!-- Footer -->
-<app-footer></app-footer>
+<app-footer [CompanyInfo] ='CompanyInfo'></app-footer>
