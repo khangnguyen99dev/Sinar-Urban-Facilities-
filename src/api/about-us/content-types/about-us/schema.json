@@ -28,7 +28,7 @@
         "files"
       ]
     },
-    "fouder_image": {
+    "founder_image": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -37,7 +37,7 @@
         "files"
       ]
     },
-    "fouder_name": {
+    "founder_name": {
       "type": "string",
       "required": true
     },
@@ -54,6 +54,10 @@
       "required": true
     },
     "title_card_info_3": {
+      "type": "string",
+      "required": true
+    },
+    "position_name": {
       "type": "string",
       "required": true
     }

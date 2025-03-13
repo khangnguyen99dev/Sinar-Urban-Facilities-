@@ -385,9 +385,9 @@ export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
-    fouder_image: Schema.Attribute.Media<'images' | 'files'> &
+    founder_image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
-    fouder_name: Schema.Attribute.String & Schema.Attribute.Required;
+    founder_name: Schema.Attribute.String & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -396,6 +396,7 @@ export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
       'api::about-us.about-us'
     > &
       Schema.Attribute.Private;
+    position_name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     title_card_info_1: Schema.Attribute.String & Schema.Attribute.Required;
@@ -695,12 +696,10 @@ export interface ApiPortfolioDetailPortfolioDetail
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     services: Schema.Attribute.Relation<'oneToMany', 'api::service.service'>;
-    sub_image_1: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
+    sub_image_1: Schema.Attribute.Media<'images' | 'files'>;
     sub_image_2: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
-    > &
-      Schema.Attribute.Required;
+    >;
     title_paragraph_1: Schema.Attribute.String & Schema.Attribute.Required;
     title_paragraph_2: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
