@@ -20,114 +20,27 @@
 <section class="tj-portfolio-inner-page-area">
     <div class="container">
         <div class="row">
-            <div class="col-xl-4 col-lg-6 col-md-6">
+
+            <div class="col-xl-4 col-lg-6 col-md-6" *ngFor="let item of dataPortfolio">
                 <div class="tj-portfolio-inner-page-wrapper wow fadeInUp" data-wow-delay=".3s">
                     <div class="tj-portfolio-inner-page-thumb">
-                        <a href="portfolio-details.html"><img src="assets/images/portfolio/portfolio-inr-img-1.jpg" alt=""></a>
+                        <a [routerLink]="['/portfolio-detail', item.slug]"><img [src]="url_image + item.image.url" alt=""></a>
                         <div class="tj-portfolio-inner-page-wrap">
                             <div class="tj-portfolio-inner-page-item">
                                 <div class="tj-portfolio-inner-page-content">
-                                    <h4 class="tj-portfolio-inner-page-title"><a href="portfolio-details.html">Organization Services</a></h4>
-                                    <p class="tj-portfolio-inner-page-paragraph">Saint, UAS</p>
+                                    <h4 class="tj-portfolio-inner-page-title"><a href="portfolio-details.html">{{ item.title }}</a></h4>
+                                    <p class="tj-portfolio-inner-page-paragraph">{{ item.location }}</p>
                                 </div>
                                 <div class="tj-portfolio-inner-page-icon">
-                                    <a href="portfolio-details.html"><i class="flaticon-left-arrow-2"></i></a>
+                                    <a [routerLink]="['/portfolio-detail', item.slug]"><i class="flaticon-left-arrow-2"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-lg-6 col-md-6">
-                <div class="tj-portfolio-inner-page-wrapper wow fadeInUp" data-wow-delay=".4s">
-                    <div class="tj-portfolio-inner-page-thumb">
-                        <a href="portfolio-details.html"><img src="assets/images/portfolio/portfolio-inr-img-2.jpg" alt=""></a>
-                        <div class="tj-portfolio-inner-page-wrap">
-                            <div class="tj-portfolio-inner-page-item">
-                                <div class="tj-portfolio-inner-page-content">
-                                    <h4 class="tj-portfolio-inner-page-title"><a href="portfolio-details.html">Organization Services</a></h4>
-                                    <p class="tj-portfolio-inner-page-paragraph">Saint, UAS</p>
-                                </div>
-                                <div class="tj-portfolio-inner-page-icon">
-                                    <a href="portfolio-details.html"><i class="flaticon-left-arrow-2"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-6 col-md-6">
-                <div class="tj-portfolio-inner-page-wrapper wow fadeInUp" data-wow-delay=".5s">
-                    <div class="tj-portfolio-inner-page-thumb">
-                        <a href="portfolio-details.html"><img src="assets/images/portfolio/portfolio-inr-img-3.jpg" alt=""></a>
-                        <div class="tj-portfolio-inner-page-wrap">
-                            <div class="tj-portfolio-inner-page-item">
-                                <div class="tj-portfolio-inner-page-content">
-                                    <h4 class="tj-portfolio-inner-page-title"><a href="portfolio-details.html">Organization Services</a></h4>
-                                    <p class="tj-portfolio-inner-page-paragraph">Saint, UAS</p>
-                                </div>
-                                <div class="tj-portfolio-inner-page-icon">
-                                    <a href="portfolio-details.html"><i class="flaticon-left-arrow-2"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-6 col-md-6">
-                <div class="tj-portfolio-inner-page-wrapper wow fadeInUp" data-wow-delay=".6s">
-                    <div class="tj-portfolio-inner-page-thumb">
-                        <a href="portfolio-details.html"><img src="assets/images/portfolio/portfolio-inr-img-4.jpg" alt=""></a>
-                        <div class="tj-portfolio-inner-page-wrap">
-                            <div class="tj-portfolio-inner-page-item">
-                                <div class="tj-portfolio-inner-page-content">
-                                    <h4 class="tj-portfolio-inner-page-title"><a href="portfolio-details.html">Organization Services</a></h4>
-                                    <p class="tj-portfolio-inner-page-paragraph">Saint, UAS</p>
-                                </div>
-                                <div class="tj-portfolio-inner-page-icon">
-                                    <a href="portfolio-details.html"><i class="flaticon-left-arrow-2"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-6 col-md-6">
-                <div class="tj-portfolio-inner-page-wrapper wow fadeInUp" data-wow-delay=".7s">
-                    <div class="tj-portfolio-inner-page-thumb">
-                        <a href="portfolio-details.html"><img src="assets/images/portfolio/portfolio-inr-img-5.jpg" alt=""></a>
-                        <div class="tj-portfolio-inner-page-wrap">
-                            <div class="tj-portfolio-inner-page-item">
-                                <div class="tj-portfolio-inner-page-content">
-                                    <h4 class="tj-portfolio-inner-page-title"><a href="portfolio-details.html">Organization Services</a></h4>
-                                    <p class="tj-portfolio-inner-page-paragraph">Saint, UAS</p>
-                                </div>
-                                <div class="tj-portfolio-inner-page-icon">
-                                    <a href="portfolio-details.html"><i class="flaticon-left-arrow-2"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-6 col-md-6">
-                <div class="tj-portfolio-inner-page-wrapper wow fadeInUp" data-wow-delay=".8s">
-                    <div class="tj-portfolio-inner-page-thumb">
-                          <a href="portfolio-details.html"><img src="assets/images/portfolio/portfolio-inr-img-6.jpg" alt=""></a>
-                          <div class="tj-portfolio-inner-page-wrap">
-                            <div class="tj-portfolio-inner-page-item">
-                                <div class="tj-portfolio-inner-page-content">
-                                    <h4 class="tj-portfolio-inner-page-title"><a href="portfolio-details.html">Organization Services</a></h4>
-                                    <p class="tj-portfolio-inner-page-paragraph">Saint, UAS</p>
-                                </div>
-                                <div class="tj-portfolio-inner-page-icon">
-                                    <a href="portfolio-details.html"><i class="flaticon-left-arrow-2"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            
         </div>
     </div>
 </section>
