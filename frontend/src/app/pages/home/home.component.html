@@ -3,32 +3,48 @@
     <app-slider></app-slider>
 
     <!-- About -->
-    <app-about-main [dataHomePage]="dataHomePage"></app-about-main>
+    @if (dataHomePage) {
+        <app-about-main [dataHomePage]="dataHomePage"></app-about-main>
+    }
 
     <!-- Service -->
-    <app-service-main [dataHomePage]="dataHomePage"></app-service-main>
+    @if (dataHomePage) {
+        <app-service-main [dataHomePage]="dataHomePage"></app-service-main>
+    }
 
     <!-- Team -->
-    <app-team-main [dataHomePage]="dataHomePage"></app-team-main>
+    @if (dataHomePage) {
+        <app-team-main [dataHomePage]="dataHomePage"></app-team-main>
+    }
 
     <!-- Before-After -->
-    <app-before-after></app-before-after>
+    @if (dataHomePage) {
+        <app-before-after></app-before-after>
+    }
 
     <!-- Choose Us -->
     <app-choose-us></app-choose-us>
 
     <!-- Pricing Plan -->
-    <app-pricing-plan [dataHomePage]="dataHomePage"></app-pricing-plan>
+    @if (dataHomePage) {
+        <app-pricing-plan [dataHomePage]="dataHomePage"></app-pricing-plan>
+    }
 
     <!-- Portfolio -->
-    <app-portfolio [dataHomePage]="dataHomePage"></app-portfolio>
+    @if (dataHomePage) {
+        <app-portfolio [dataHomePage]="dataHomePage"></app-portfolio>
+    }
 
     <!-- Contact -->
     <app-contact-main></app-contact-main>
 
     <!-- Testimonial -->
-    <app-testimonial [dataHomePage]="dataHomePage"></app-testimonial>
+    @if (dataHomePage) {
+        <app-testimonial [dataHomePage]="dataHomePage"></app-testimonial>
+    }
 
     <!-- Blog -->
-    <app-blog-main [dataHomePage]="dataHomePage"></app-blog-main>
+    @if (dataHomePage) {
+        <app-blog-main [dataHomePage]="dataHomePage"></app-blog-main>
+    }
 </div>
