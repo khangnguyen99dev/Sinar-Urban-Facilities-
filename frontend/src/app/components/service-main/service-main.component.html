@@ -1,0 +1,66 @@
+<!-- Service Area Start-->
+<section class="tj-service-area" data-background="assets/images/service/service-bg.jpg">
+    <div class="tj-service-bg-top-shape">
+        <img class="tj-service-bg-top-shape-1" src="assets/images/service/service-main-bg-shape.png" alt="">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="tj-section-wrapper text-center">
+                    <h5 class="tj-section-subtitle wow fadeInRight" data-wow-delay=".3s"><span class="one"><i class="flaticon-start"></i></span> Services <span class="two"><i class="flaticon-start"></i></span> </h5>
+                    <h2 class="tj-section-title wow fadeInUp" data-wow-delay=".4s">We Provide Service For You</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <ul class="service__tab  wow fadeInUp" data-wow-delay=".3s">
+                    <li *ngFor="let item of dataHomePage?.services let index = index" class="service-filter-btn {{ index === 0 ? 'active' : '' }}" id="ser-{{ index + 1 }}">
+                        <div class="tj-service-wrapper text-center">
+                            <div class="tj-service-icon">
+                                <span><i class="{{ item.icon_class }}"></i></span>
+                            </div>
+                            <div class="tj-service-content">
+                                <h5 class="tj-service-title">{{ item.title }}</h5>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="tab-item-widget wow fadeInUp" data-wow-delay=".4s" data-wow-duration="1s">
+                    <div *ngFor="let item of dataHomePage?.services let index = index" class="single-service ser-{{ index + 1 }} {{ index === 0 ? 'active' : '' }}">
+                        <div class="row gx-0 tj-service-bottom-row">
+                            <div class="tj-service-bottom-bg-shape">
+                                <img src="assets/images/service/service-bottom-bg-shape.png" alt="">
+                            </div>
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="tj-service-bottom-wrapper text-center">
+                                    <h4 class="tj-service-bottom-title">{{ item.title }}</h4>
+                                    <p class="tj-service-bottom-paragraph">{{ item.description }}</p>
+                                    <div class="tj-service-bottom-amount">
+                                        <h3 class="tj-service-bottom-amount-title"> <span>$</span>{{ item.price }}</h3>
+                                        <p class="tj-service-bottom-amount-paragraph">From start</p>
+                                    </div>
+                                    <div class="tj-service-btn">
+                                        <a class="tj-secondary-btn tj-hover-btn" href="contact.html"><span>Read more <i class="flaticon-start"></i></span>
+                                            <div class="tj-hover-btn-circle-dot"></div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="tj-service-bottom-thumb">
+                                    <img [src]="environment.site_url + item?.image?.url" alt="">
+                                    <div class="tj-service-bottom-thumb-shape">
+                                        <img class="tj-service-bottom-thumb-shape-2" src="assets/images/service/service-bottom-thum-shape2.png" alt="">
+                                        <img class="tj-service-bottom-thumb-shape-3" src="assets/images/service/service-bottom-thum-shape3.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Service Area End-->

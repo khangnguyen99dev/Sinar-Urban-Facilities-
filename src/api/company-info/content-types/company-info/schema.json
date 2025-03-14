@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "company_infos",
+  "info": {
+    "singularName": "company-info",
+    "pluralName": "company-infos",
+    "displayName": "CompanyInfo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "call_us": {
+      "type": "string",
+      "required": true
+    },
+    "email_us": {
+      "type": "string",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "url_facebook": {
+      "type": "string"
+    },
+    "url_x": {
+      "type": "string"
+    },
+    "url_linkedin": {
+      "type": "string"
+    },
+    "url_vimeo": {
+      "type": "string"
+    }
+  }
+}

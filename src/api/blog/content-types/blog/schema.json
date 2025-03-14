@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogs",
+  "info": {
+    "singularName": "blog",
+    "pluralName": "blogs",
+    "displayName": "Blog",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "create_by_name": {
+      "type": "string",
+      "required": true
+    },
+    "count_comment": {
+      "required": true,
+      "type": "biginteger"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "slug": {
+      "type": "string",
+      "editable": false
+    },
+    "is_show_home": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "blog_detail": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::blog-detail.blog-detail"
+    }
+  }
+}

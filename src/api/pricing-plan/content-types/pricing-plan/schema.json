@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pricing_plans",
+  "info": {
+    "singularName": "pricing-plan",
+    "pluralName": "pricing-plans",
+    "displayName": "PricingPlan",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "is_special": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "pricing_options": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pricing-option.pricing-option"
+    }
+  }
+}

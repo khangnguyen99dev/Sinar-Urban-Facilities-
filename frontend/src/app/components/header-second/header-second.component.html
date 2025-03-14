@@ -1,0 +1,110 @@
+<!-- Header Area Start -->
+<header class="tj-header-2-area tj-header-absolute">
+    <div class="tj-header-2-top d-none d-lg-block">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="tj-header-2-top-wrapper">
+                        <div class="tj-header-2-top-information">
+                            <ul>
+                                <li><a href="tel:+{{ CompanyInfo?.call_us }}"><i class="flaticon-call"></i> {{ CompanyInfo?.call_us }}</a></li>
+                                <li><a href="tel:+{{ CompanyInfo?.email_us }}"><i class="flaticon-email-2"></i> {{ CompanyInfo?.email_us }}</a></li>
+                                <li><span><i class="flaticon-location"></i> {{ CompanyInfo?.location }}</span></li>
+                            </ul>
+                        </div>
+                        <div class="tj-header-2-top-right">
+                            <div class="tj-header-2-top-nice-select">
+                                <select class="nice-select">
+                                    <option value="2">USA</option>
+                                    <option value="2">BAN</option>
+                                    <option value="2">ENG</option>
+                                </select>
+                            </div>
+                            <div class="tj-header-2-top-social d-none d-lg-block">
+                                <ul>
+                                    <li><a href="{{ CompanyInfo?.url_facebook }}"><i class="fa-brands fa-facebook-f fa-fw"></i></a></li>
+                                    <li><a href="{{ CompanyInfo?.url_x }}"><i class="fa-brands fa-twitter"></i></a></li>
+                                    <li><a href="{{ CompanyInfo?.url_linkedin }}"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                    <li><a href="{{ CompanyInfo?.url_linkedin }}"><i class="fa-brands fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tj-header-2-bottom header-sticky">
+        <div class="container">
+            <div class="row tj-header-2-bottom-row">
+                <div class="col">
+                    <div class="tj-header-bottom-wrapper">
+                        <div class="tj-header-2-bottom-logo">
+                            <a href="/home"><img src="assets/images/logo/SUF - Landscape Logo - Black.png" alt="Logos"></a>
+                        </div>
+                        <div class="tj-header-bottom-left d-none d-xl-block">
+                            <div class="mainmenu-wrapper">
+                                <div class="mainmenu-box">
+                                    <div class="mainmenu mainmenu-2 main-mobile-menu d-none d-lg-inline-block">
+                                        <ul>
+                                            <li>
+                                                <a href="/home">Home</a>
+                                            </li>
+                                            <li class="has-dropdown {{currentRoute === '/services' || currentRoute === '/service-details' ? 'current-menu-ancestor' : ''}}">
+                                                <a href="javascript:void(0)">Services</a>
+                                                <ul class="sub-menu">
+                                                    <li class="{{currentRoute === '/services' ? 'current-menu-item' : ''}}"><a href="/services">Services</a></li>
+                                                    <li class="{{currentRoute === '/service-details' ? 'current-menu-item' : ''}}"><a href="/service-details">Services Details</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="has-dropdown {{currentRoute === '/portfolio' || currentRoute === '/portfolio-details' ? 'current-menu-ancestor' : ''}}">
+                                                <a href="javascript:void(0)">Portfolio</a>
+                                                <ul class="sub-menu">
+                                                    <li class="{{currentRoute === '/portfolio' ? 'current-menu-item' : ''}}"><a href="/portfolio">Portfolio</a></li>
+                                                    <li class="{{currentRoute === '/portfolio-details' ? 'current-menu-item' : ''}}"><a href="/portfolio-details">Portfolio Details</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="has-dropdown {{currentRoute === '/about' || currentRoute === '/teams' || currentRoute === '/team-details' ? 'current-menu-ancestor' : ''}}">
+                                                <a href="javascript:void(0)">Pages</a>
+                                                <ul class="sub-menu">
+                                                    <li class="{{currentRoute === '/about' ? 'current-menu-item' : ''}}"><a href="/about">About</a></li>
+                                                    <li class="{{currentRoute === '/teams' ? 'current-menu-item' : ''}}"><a href="/teams">Teams</a></li>
+                                                    <li class="{{currentRoute === '/team-details' ? 'current-menu-item' : ''}}"><a href="/team-details">Team Details</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="has-dropdown {{currentRoute === '/blog-grid' || currentRoute === '/blog-stander' || currentRoute === '/blog-details' ? 'current-menu-ancestor' : ''}}">
+                                                <a href="javascript:void(0)">News</a>
+                                                <ul class="sub-menu">
+                                                    <li class="{{currentRoute === '/blog-grid' ? 'current-menu-item' : ''}}"><a href="/blog-grid">Blog Grid</a></li>
+                                                    <li class="{{currentRoute === '/blog-stander' ? 'current-menu-item' : ''}}"><a href="/blog-stander">Blog Stander</a></li>
+                                                    <li class="{{currentRoute === '/blog-details' ? 'current-menu-item' : ''}}"><a href="/blog-details">Blog Details</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="{{currentRoute === '/contact' ? 'current-menu-ancestor' : ''}}"><a href="/contact">Contact</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tj-header-bottom-right">
+                            <div class="tj-header-2-button d-none d-sm-block">
+                                <a class="tj-primary-btn tj-hover-btn" href="/contact"><span>Get a quote <i class="flaticon-start"></i></span>
+                                    <div class="tj-hover-btn-circle-dot"></div>
+                                </a>
+                            </div>
+                            <div class="tj-header-bottom-mobile-button d-block d-xl-none">
+                                <button class="tj-header-bottom-mobile-btn menu-bar">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Area End-->

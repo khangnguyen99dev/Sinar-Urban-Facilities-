@@ -1,0 +1,149 @@
+<!-- Breadcrumb Area Start-->
+<section class="tj-breadcrumb-area" [style.background-image]="'url(assets/images/breadcrumb/breadcrumb-bg.jpg)'">
+    <div class="container">
+        <div class="row">
+            <div class="tj-breadcrumb-content text-center">
+                <h2 class="tj-breadcrumb-title">Services Details</h2>
+                <p class="tj-breadcrumb-body"><span><a routerLink="/">Home</a></span> <span class="spacing">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M16.1639 8.42265C16.4818 8.74057 16.4818 9.25948 16.1639 9.57739L9.93661 15.8045C9.6182 16.1229 9.10024 16.1229 8.78187 15.8045L8.43354 15.4562C8.11485 15.1375 8.11478 14.6198 8.4335 14.301L13.1574 9.57753C13.4762 9.25884 13.4762 8.74106 13.1574 8.42237L8.43354 3.69885C8.11478 3.38012 8.11481 2.86248 8.43357 2.54375L8.7819 2.19542C9.09982 1.87751 9.61872 1.87751 9.93664 2.19542L16.1639 8.42265ZM3.34094 2.19535C3.02271 1.87708 2.50426 1.87712 2.18602 2.19535L1.8377 2.54368C1.5196 2.86178 1.51957 3.38068 1.8377 3.69881L6.5614 8.42237C6.88012 8.7411 6.88012 9.25881 6.5614 9.57753L1.83766 14.3011C1.51943 14.6193 1.51946 15.138 1.83766 15.4562L2.18599 15.8045C2.50436 16.1229 3.02253 16.1229 3.34091 15.8045L9.01506 10.1302C10.6067 11.7203 10.2041 11.317 9.01622 10.129L9.56782 9.57739C9.88595 9.25926 9.88591 8.74074 9.56782 8.42262L3.34094 2.19535Z" fill="white" />
+                    </svg>
+                    </span> Services Details
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="tj-breadcrumb-bg-shape">
+        <img src="assets/images/breadcrumb/breadcrumb-bg-shape.png" alt="">
+    </div>
+</section>
+<!-- Breadcrumb Area End-->
+
+<!-- Service-Details Area Start-->
+<section class="tj-service-details-area" *ngIf="service">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="tj-service-details-item">
+                    <div class="tj-service-details-wrapper">
+                        <h4 class="tj-service-details-title text-center">{{ service?.title }}</h4>
+                        <div class="tj-service-details-image wow fadeInUp" data-wow-delay=".3s">
+                            <img *ngIf="service?.image"
+                                [src]="service?.image?.url ? (environment + service?.image.url) : 'assets/images/service/service-4.jpg'">
+                        </div>
+                        <div class="tj-service-details-text">
+                            <h3 class="tj-service-details-title wow fadeInUp" data-wow-delay=".4s">{{ serviceDetail?.title_paragraph_1 }}</h3>
+                            <div class="tj-service-details-desc wow fadeInUp" data-wow-delay=".5s">
+                                <p>
+                                    {{ serviceDetail?.description_paragraph_1 }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tj-service-details-image-item">
+                        <div class="tj-service-details-center-image wow fadeInUp" data-wow-delay=".6s">
+                            <img *ngIf="serviceDetail?.image_1_paragraph_1"
+                                [src]="serviceDetail?.image_1_paragraph_1?.url ? (environment + serviceDetail?.image_1_paragraph_1.url) : 'assets/images/service/service-5.jpg'">
+                            <img *ngIf="serviceDetail?.image_2_paragraph_1"
+                                [src]="serviceDetail?.image_2_paragraph_1?.url ? (environment + serviceDetail?.image_2_paragraph_1.url) : 'assets/images/service/service-6.jpg'">
+                        </div>
+                        <!-- <div class="desc wow fadeInUp" data-wow-delay=".7s">
+                            <p>
+                                Deep cleaning services go beyond regular maintenance cleaning to tackle areas that are often overlooked, such as baseboards, behind appliances, inside cabinets, and other hard-to-reach places. This type of cleaning is usually recommended for spring cleaning or before special events. Some cleaning companies offer specialized services such as carpet cleaning, upholstery cleaning, tile and grout cleaning.
+                            </p>
+                        </div> -->
+                    </div>
+
+                    <!-- Service quality -->
+                    <div class="tj-service-details-check wow fadeInUp" data-wow-delay=".8s" *ngIf="serviceDetail?.description_paragraph_2 || serviceDetail?.image_1_paragraph_2">
+                        <h3 class="tj-service-details-title">{{ serviceDetail?.title_paragraph_2 }}</h3>
+                        <div class="desc">
+                            <p>
+                                {{ serviceDetail?.description_paragraph_2 }}
+                            </p>
+                        </div>
+                        <div class="tj-service-details-check-content">
+                            <div class="tj-service-details-check-images">
+                                <img *ngIf="serviceDetail?.image_1_paragraph_2"
+                                    [src]="serviceDetail?.image_1_paragraph_2?.url ? (environment + serviceDetail?.image_1_paragraph_2.url) : 'assets/images/service/service-7.jpg'">
+                            </div>
+                            <div class="tj-service-details-check-list">
+                                <ul>
+                                    <li *ngFor="let quality of serviceQualities">
+                                        <span><i class="fa-light fa-check"></i></span>
+                                        {{ quality.title }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ -->
+                    <div class="tj-faq-2-accordion two accordion-flush wow fadeInUp" data-wow-delay=".9s" id="accordionFlushExample">
+                        <div class="tj-faq-2-accordion-item accordion-item" *ngFor="let question of serviceQuestions; let i = index">
+                            <h2 class="accordion-header">
+                                <button class="tj-faq-2-accordion-title accordion-button" 
+                                        [class.collapsed]="i !== 0" 
+                                        type="button" 
+                                        data-bs-toggle="collapse" 
+                                        [attr.data-bs-target]="'#flush-collapse' + i" 
+                                        [attr.aria-expanded]="i === 0 ? 'true' : 'false'" 
+                                        [attr.aria-controls]="'flush-collapse' + i">
+                                    {{ question.title }}
+                                </button>
+                            </h2>
+                            <div [id]="'flush-collapse' + i" 
+                                 class="accordion-collapse collapse" 
+                                 [class.show]="i === 0" 
+                                 data-bs-parent="#accordionFlushExample">
+                                <div class="tj-faq-2-accordion-pera accordion-body">
+                                    {{ question.description }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="service_list wow fadeInUp" data-wow-delay=".7s">
+                    <h3 class="widget_categories-title">All Services</h3>
+                    <nav>
+                        <ul>
+                            <li *ngFor="let service of services" [class.active]="isCurrentService(service.slug)">
+                                <a [routerLink]="['/services', service.slug]">
+                                    {{ service.title }}
+                                    <span><i class="flaticon-left-arrow-2"></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="tj-service-widget style-2 wow fadeInUp" data-wow-delay=".8s">
+                    <div class="tj-service-widget-contact-box text-center">
+                        <div class="tj-service-widget-contact-content">
+                            <h3 class="tj-service-widget-contact-title">Emergency Cleaning Services</h3>
+                        </div>
+                        <div class="tj-service-widget-contact-icon">
+                            <span><i class="flaticon flaticon-teliphone"></i></span>
+                        </div>
+                        <div class="tj-service-widget-contact-bottom-content">
+                            <span>Requesting A Call</span>
+                            <a class="link" href="tel:000123456789">(208) 555-0112</a>
+                            <div class="tj-service-widget-contact-desc">
+                                <p>
+                                    To ensure the best service, please secure any valuables and clear away clutter from surfaces you want cleaned.
+                                </p>
+                            </div>
+                            <div class="tj-service-widget-contact-button">
+                                <a class="tj-service-widget-contact-btn tj-hover-btn" [routerLink]="['/contact']">Read More <i class="fa-light fa-arrow-right"></i>
+                                    <span class="tj-hover-btn-circle-dot"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Service-Details Area End-->

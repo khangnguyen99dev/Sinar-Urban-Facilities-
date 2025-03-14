@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "about_uses",
+  "info": {
+    "singularName": "about-us",
+    "pluralName": "about-uses",
+    "displayName": "AboutUs",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "founder_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "founder_name": {
+      "type": "string",
+      "required": true
+    },
+    "url_video": {
+      "type": "string",
+      "required": true
+    },
+    "title_card_info_1": {
+      "type": "string",
+      "required": true
+    },
+    "title_card_info_2": {
+      "type": "string",
+      "required": true
+    },
+    "title_card_info_3": {
+      "type": "string",
+      "required": true
+    },
+    "position_name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

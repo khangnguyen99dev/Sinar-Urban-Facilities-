@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "teams",
+  "info": {
+    "singularName": "team",
+    "pluralName": "teams",
+    "displayName": "Team",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "role_name": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "url_facebook": {
+      "type": "string"
+    },
+    "url_x": {
+      "type": "string"
+    },
+    "url_linkedin": {
+      "type": "string"
+    },
+    "url_vimeo": {
+      "type": "string"
+    },
+    "is_show_home": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "clients_satisfaction": {
+      "type": "biginteger",
+      "required": true
+    },
+    "cleaning_services": {
+      "type": "biginteger",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service"
+    },
+    "slug": {
+      "type": "string",
+      "editable": false
+    }
+  }
+}

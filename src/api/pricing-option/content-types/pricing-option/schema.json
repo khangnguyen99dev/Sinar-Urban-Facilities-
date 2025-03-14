@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pricing_options",
+  "info": {
+    "singularName": "pricing-option",
+    "pluralName": "pricing-options",
+    "displayName": "PricingOption",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

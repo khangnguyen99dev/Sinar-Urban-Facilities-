@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "service_qualities",
+  "info": {
+    "singularName": "service-quality",
+    "pluralName": "service-qualities",
+    "displayName": "ServiceQuality"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
