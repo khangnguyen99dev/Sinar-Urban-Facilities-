@@ -39,9 +39,21 @@
                     <div class="tj-service-details-check-list tj-portfolio-details-bottom-list tj-team-details-list wow fadeInUp"
                         data-wow-delay=".4s">
                         <ul>
-                            <li *ngFor="let service of data?.services">
-                                <span></span>
-                                {{service?.title}}
+                            <li *ngIf="data?.advanced_point_1">
+                                <span><i class="fa-solid fa-check"></i></span>
+                                {{data?.advanced_point_1}}
+                            </li>
+                            <li *ngIf="data?.advanced_point_2">
+                                <span><i class="fa-solid fa-check"></i></span>
+                                {{data?.advanced_point_2}}
+                            </li>
+                            <li *ngIf="data?.advanced_point_3">
+                                <span><i class="fa-solid fa-check"></i></span>
+                                {{data?.advanced_point_3}}
+                            </li>
+                            <li *ngIf="data?.advanced_point_4">
+                                <span><i class="fa-solid fa-check"></i></span>
+                                {{data?.advanced_point_4}}
                             </li>
                         </ul>
                     </div>

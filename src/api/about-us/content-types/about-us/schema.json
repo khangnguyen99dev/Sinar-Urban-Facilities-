@@ -60,6 +60,16 @@
     "position_name": {
       "type": "string",
       "required": true
+    },
+    "image_video": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

@@ -232,13 +232,13 @@
 			separatorColor: "#fafafa",
 			bulletColor: "#fafafa",
 			onMoveStart: function (e) {
-				console.log(event.target);
+				// console.log(event.target);
 			},
 			onMoving: function () {
-				console.log(event.target);
+				// console.log(event.target);
 			},
 			onMoveEnd: function () {
-				console.log(event.target);
+				// console.log(event.target);
 			},
 		});
 	}

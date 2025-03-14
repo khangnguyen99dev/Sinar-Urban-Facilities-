@@ -54,11 +54,22 @@
                     <div class="tj-service-details-check-list tj-portfolio-details-bottom-list wow fadeInUp"
                         data-wow-delay=".6s">
                         <ul>
-                            <li *ngFor="let item of dataPortfolio?.portfolio_detail?.services">
+                            <li *ngIf="dataPortfolio?.portfolio_detail?.advanced_point_1">
                                 <span><i class="fa-solid fa-check"></i></span>
-                                {{item?.title}}
+                                {{dataPortfolio?.portfolio_detail?.advanced_point_1}}
                             </li>
-
+                            <li *ngIf="dataPortfolio?.portfolio_detail?.advanced_point_2">
+                                <span><i class="fa-solid fa-check"></i></span>
+                                {{dataPortfolio?.portfolio_detail?.advanced_point_2}}
+                            </li>
+                            <li *ngIf="dataPortfolio?.portfolio_detail?.advanced_point_3">
+                                <span><i class="fa-solid fa-check"></i></span>
+                                {{dataPortfolio?.portfolio_detail?.advanced_point_3}}
+                            </li>
+                            <li *ngIf="dataPortfolio?.portfolio_detail?.advanced_point_4">
+                                <span><i class="fa-solid fa-check"></i></span>
+                                {{dataPortfolio?.portfolio_detail?.advanced_point_4}}
+                            </li>
                         </ul>
                     </div>
                     <div class="tj-service-details-center-image tj-portfolio-details-bottom-image wow fadeInUp"
