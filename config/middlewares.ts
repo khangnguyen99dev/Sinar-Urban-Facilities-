@@ -13,7 +13,7 @@ export default [
     config: {
       enabled: true,
       headers: ['*'],
-      origin: ['*', 'http://localhost:4200', 'https://sinar-urban-facilities-demo.kane-service.shop'],
+      origin: ['http://localhost:4200', 'https://sinar-urban-facilities-demo.kane-service.shop'],
     },
   },
 ];
