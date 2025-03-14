@@ -398,6 +398,8 @@ export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     position_name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    thumbnail_video: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     title_card_info_1: Schema.Attribute.String & Schema.Attribute.Required;
     title_card_info_2: Schema.Attribute.String & Schema.Attribute.Required;
@@ -683,6 +685,10 @@ export interface ApiPortfolioDetailPortfolioDetail
     draftAndPublish: true;
   };
   attributes: {
+    advanced_point_1: Schema.Attribute.String;
+    advanced_point_2: Schema.Attribute.String;
+    advanced_point_3: Schema.Attribute.String;
+    advanced_point_4: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -695,7 +701,6 @@ export interface ApiPortfolioDetailPortfolioDetail
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    services: Schema.Attribute.Relation<'oneToMany', 'api::service.service'>;
     sub_image_1: Schema.Attribute.Media<'images' | 'files'>;
     sub_image_2: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
@@ -933,7 +938,7 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     icon_class: Schema.Attribute.String & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
@@ -972,6 +977,10 @@ export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    advanced_point_1: Schema.Attribute.String;
+    advanced_point_2: Schema.Attribute.String;
+    advanced_point_3: Schema.Attribute.String;
+    advanced_point_4: Schema.Attribute.String;
     avatar: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     cleaning_services: Schema.Attribute.BigInteger & Schema.Attribute.Required;
@@ -992,7 +1001,6 @@ export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
     phone: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     role_name: Schema.Attribute.String & Schema.Attribute.Required;
-    services: Schema.Attribute.Relation<'oneToMany', 'api::service.service'>;
     slug: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

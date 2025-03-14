@@ -46,10 +46,17 @@
         "audios"
       ]
     },
-    "services": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::service.service"
+    "advanced_point_1": {
+      "type": "string"
+    },
+    "advanced_point_2": {
+      "type": "string"
+    },
+    "advanced_point_3": {
+      "type": "string"
+    },
+    "advanced_point_4": {
+      "type": "string"
     }
   }
 }
