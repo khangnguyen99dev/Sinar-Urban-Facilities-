@@ -18,32 +18,35 @@ export class AppComponent implements OnInit {
   constructor(private scriptService: ScriptService, private router: Router, private apiService: ApiService) {}
 
   ngOnInit() {
-    this.fetchCompanyInfo();
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.isHeaderSecond = event.url !== '/home' && event.url !== '/';
       }
     });
-    // load scripts in order
-    this.scriptService.load('jquery')
-      .then(() => this.scriptService.load('bootstrap'))
-      .then(() => this.scriptService.load('waypoints'))
-      .then(() => this.scriptService.load('appear'))
-      .then(() => this.scriptService.load('odometer'))
-      .then(() => this.scriptService.load('niceSelect'))
-      .then(() => this.scriptService.load('swiper'))
-      .then(() => this.scriptService.load('imagesloaded'))
-      .then(() => this.scriptService.load('magnificPopup'))
-      .then(() => this.scriptService.load('isotope'))
-      .then(() => this.scriptService.load('meanmenu'))
-      .then(() => this.scriptService.load('wow'))
-      .then(() => this.scriptService.load('beforeafter'))
-      .then(() => this.scriptService.load('main'))
-      .then(() => {
-        // initialize plugins
-        this.initializePlugins();
-      })
-      .catch(error => console.log('Error loading script', error));
+    this.fetchCompanyInfo().then(() => {
+      return new Promise(resolve => setTimeout(resolve, 200));
+    }).then(() => {
+      // load scripts in order
+      return this.scriptService.load('jquery')
+        .then(() => this.scriptService.load('bootstrap'))
+        .then(() => this.scriptService.load('waypoints'))
+        .then(() => this.scriptService.load('appear'))
+        .then(() => this.scriptService.load('odometer'))
+        .then(() => this.scriptService.load('niceSelect'))
+        .then(() => this.scriptService.load('swiper'))
+        .then(() => this.scriptService.load('imagesloaded'))
+        .then(() => this.scriptService.load('magnificPopup'))
+        .then(() => this.scriptService.load('isotope'))
+        .then(() => this.scriptService.load('meanmenu'))
+        .then(() => this.scriptService.load('wow'))
+        .then(() => this.scriptService.load('beforeafter'))
+        .then(() => this.scriptService.load('main'))
+        .then(() => {
+          // initialize plugins
+          this.initializePlugins();
+        })
+        .catch(error => console.log('Error loading script', error));
+    });
   }
 
   private initializePlugins() {
