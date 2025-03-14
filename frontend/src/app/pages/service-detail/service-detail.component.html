@@ -20,100 +20,85 @@
 <!-- Breadcrumb Area End-->
 
 <!-- Service-Details Area Start-->
-<section class="tj-service-details-area">
+<section class="tj-service-details-area" *ngIf="service">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
                 <div class="tj-service-details-item">
                     <div class="tj-service-details-wrapper">
+                        <h4 class="tj-service-details-title text-center">{{ service?.title }}</h4>
                         <div class="tj-service-details-image wow fadeInUp" data-wow-delay=".3s">
-                            <img src="assets/images/service/service-4.jpg" alt="Image">
+                            <img *ngIf="service?.image"
+                                [src]="service?.image?.url ? (environment + service?.image.url) : 'assets/images/service/service-4.jpg'">
                         </div>
                         <div class="tj-service-details-text">
-                            <h3 class="tj-service-details-title wow fadeInUp" data-wow-delay=".4s">We give the best Services</h3>
+                            <h3 class="tj-service-details-title wow fadeInUp" data-wow-delay=".4s">{{ serviceDetail?.title_paragraph_1 }}</h3>
                             <div class="tj-service-details-desc wow fadeInUp" data-wow-delay=".5s">
                                 <p>
-                                    Deep cleaning services go beyond regular maintenance cleaning to tackle areas that are often overlooked, such as baseboards, behind appliances, inside cabinets, and other hard-to-reach places. This type of cleaning is usually recommended for spring cleaning or before special events. 
-                                </p>
-                                <p>
-                                    These services are tailored to businesses and may include cleaning offices, retail spaces, restaurants, and other any commercial establishments. They often involve larger-scale cleaning tasks 
+                                    {{ serviceDetail?.description_paragraph_1 }}
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="tj-service-details-image-item">
                         <div class="tj-service-details-center-image wow fadeInUp" data-wow-delay=".6s">
-                            <img src="assets/images/service/service-5.jpg" alt="Image">
-                            <img src="assets/images/service/service-6.jpg" alt="Image">
+                            <img *ngIf="serviceDetail?.image_1_paragraph_1"
+                                [src]="serviceDetail?.image_1_paragraph_1?.url ? (environment + serviceDetail?.image_1_paragraph_1.url) : 'assets/images/service/service-5.jpg'">
+                            <img *ngIf="serviceDetail?.image_2_paragraph_1"
+                                [src]="serviceDetail?.image_2_paragraph_1?.url ? (environment + serviceDetail?.image_2_paragraph_1.url) : 'assets/images/service/service-6.jpg'">
                         </div>
-                        <div class="desc wow fadeInUp" data-wow-delay=".7s">
+                        <!-- <div class="desc wow fadeInUp" data-wow-delay=".7s">
                             <p>
-                                Deep cleaning services go beyond regular maintenance cleaning to tackle areas that are often overlooked, such as baseboards, behind appliances, inside cabinets, and other hard-to-reach places. This type of cleaning is usually recommended for spring cleaning or before special events. Some cleaning companies offer specialized services such as carpet cleaning, upholstery cleaning, tile and grout cleaning,
+                                Deep cleaning services go beyond regular maintenance cleaning to tackle areas that are often overlooked, such as baseboards, behind appliances, inside cabinets, and other hard-to-reach places. This type of cleaning is usually recommended for spring cleaning or before special events. Some cleaning companies offer specialized services such as carpet cleaning, upholstery cleaning, tile and grout cleaning.
                             </p>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="tj-service-details-check wow fadeInUp" data-wow-delay=".8s">
-                        <h3 class="tj-service-details-title">Service Quality</h3>
+
+                    <!-- Service quality -->
+                    <div class="tj-service-details-check wow fadeInUp" data-wow-delay=".8s" *ngIf="serviceDetail?.description_paragraph_2 || serviceDetail?.image_1_paragraph_2">
+                        <h3 class="tj-service-details-title">{{ serviceDetail?.title_paragraph_2 }}</h3>
                         <div class="desc">
                             <p>
-                                For environmentally conscious customers, some cleaning services offer green cleaning options that use eco-friendly products and practices to minimize environmental impact.
+                                {{ serviceDetail?.description_paragraph_2 }}
                             </p>
                         </div>
                         <div class="tj-service-details-check-content">
                             <div class="tj-service-details-check-images">
-                                <img src="assets/images/service/service-7.jpg" alt="Image">
+                                <img *ngIf="serviceDetail?.image_1_paragraph_2"
+                                    [src]="serviceDetail?.image_1_paragraph_2?.url ? (environment + serviceDetail?.image_1_paragraph_2.url) : 'assets/images/service/service-7.jpg'">
                             </div>
                             <div class="tj-service-details-check-list">
                                 <ul>
-                                    <li>
+                                    <li *ngFor="let quality of serviceQualities">
                                         <span><i class="fa-light fa-check"></i></span>
-                                        The Bright Choice for a Clean Home.
-                                    </li>
-                                    <li>
-                                        <span><i class="fa-light fa-check"></i></span>
-                                        Where Cleanliness Meets Perfection
-                                    </li>
-                                    <li>
-                                        <span><i class="fa-light fa-check"></i></span>
-                                        Transforming Spaces, One Clean at a Time
-                                    </li>
-                                    <li>
-                                        <span><i class="fa-light fa-check"></i></span>
-                                        Effortless Clean, Exceptional Results
+                                        {{ quality.title }}
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+
+                    <!-- FAQ -->
                     <div class="tj-faq-2-accordion two accordion-flush wow fadeInUp" data-wow-delay=".9s" id="accordionFlushExample">
-                        <div class="tj-faq-2-accordion-item accordion-item">
+                        <div class="tj-faq-2-accordion-item accordion-item" *ngFor="let question of serviceQuestions; let i = index">
                             <h2 class="accordion-header">
-                                <button class="tj-faq-2-accordion-title accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    What should I do to prepare for a cleaning service?
+                                <button class="tj-faq-2-accordion-title accordion-button" 
+                                        [class.collapsed]="i !== 0" 
+                                        type="button" 
+                                        data-bs-toggle="collapse" 
+                                        [attr.data-bs-target]="'#flush-collapse' + i" 
+                                        [attr.aria-expanded]="i === 0 ? 'true' : 'false'" 
+                                        [attr.aria-controls]="'flush-collapse' + i">
+                                    {{ question.title }}
                                 </button>
                             </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                <div class="tj-faq-2-accordion-pera accordion-body">Your satisfaction is our top priority. If you're not happy with our service, please contact us within 24 hours and we will re-clean the area at  additional charge. Your satisfaction our top priority. If you're not happy any with our service, please contact us within 24 hours and we will re-clean </div>
-                            </div>
-                        </div>
-                        <div class="tj-faq-2-accordion-item accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="tj-faq-2-accordion-title accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                    What if I'm not satisfied with the cleaning service?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushExample">
-                                <div class="tj-faq-2-accordion-pera accordion-body">Your satisfaction is our top priority. If you're not happy with our service, please contact us within 24 hours and we will re-clean the area at  additional charge. Your satisfaction our top priority. If you're not happy any with our service, please contact us within 24 hours and we will re-clean </div>
-                            </div>
-                        </div>
-                        <div class="tj-faq-2-accordion-item accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="tj-faq-2-accordion-title accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                    Are your cleaning products safe for pets and children?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                <div class="tj-faq-2-accordion-pera accordion-body">Your satisfaction is our top priority. If you're not happy with our service, please contact us within 24 hours and we will re-clean the area at  additional charge. Your satisfaction our top priority. If you're not happy any with our service, please contact us within 24 hours and we will re-clean </div>
+                            <div [id]="'flush-collapse' + i" 
+                                 class="accordion-collapse collapse" 
+                                 [class.show]="i === 0" 
+                                 data-bs-parent="#accordionFlushExample">
+                                <div class="tj-faq-2-accordion-pera accordion-body">
+                                    {{ question.description }}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -124,33 +109,9 @@
                     <h3 class="widget_categories-title">All Services</h3>
                     <nav>
                         <ul>
-                            <li  class="active">
-                                <a href="#">
-                                    Home Cleaning
-                                    <span><i class="flaticon-left-arrow-2"></i></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Indoor Cleaning
-                                    <span><i class="flaticon-left-arrow-2"></i></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Plumbing Cleaning
-                                    <span><i class="flaticon-left-arrow-2"></i></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Bathroom Cleaning
-                                    <span><i class="flaticon-left-arrow-2"></i></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Outdoor Cleaning
+                            <li *ngFor="let service of services" [class.active]="isCurrentService(service.slug)">
+                                <a [routerLink]="['/services', service.slug]">
+                                    {{ service.title }}
                                     <span><i class="flaticon-left-arrow-2"></i></span>
                                 </a>
                             </li>
@@ -174,7 +135,7 @@
                                 </p>
                             </div>
                             <div class="tj-service-widget-contact-button">
-                                <a class="tj-service-widget-contact-btn tj-hover-btn" href="contact.html">Read More <i class="fa-light fa-arrow-right"></i>
+                                <a class="tj-service-widget-contact-btn tj-hover-btn" [routerLink]="['/contact']">Read More <i class="fa-light fa-arrow-right"></i>
                                     <span class="tj-hover-btn-circle-dot"></span>
                                 </a>
                             </div>

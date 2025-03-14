@@ -31,9 +31,7 @@
                     <div class="tj-service-2-box">
                         <div class="tj-service-2-wrap">
                             <div class="tj-service-2-icon">
-                                <img [src]="environment.site_url + service.icon?.url" 
-                                    [alt]="service.icon?.name"
-                                    class="service-icon-image">
+                                <span><i [class]="service?.icon_class"></i></span>
                             </div>
                             <div class="tj-service-2-number">
                                 <span>{{(i + 1).toString().padStart(2, '0')}}</span>
@@ -41,11 +39,11 @@
                         </div>
                         <div class="tj-service-2-content">
                             <h4 class="tj-service-2-title">
-                                <a [routerLink]="['/service-details', service.id]">{{service.title}}</a>
+                                <a [routerLink]="['/services', service.slug]">{{service.title}}</a>
                             </h4>
                             <p class="tj-service-2-paragraph">{{service.description}}</p>
                             <div class="tj-service-2-button">
-                                <a class="tj-service-2-btn tj-arrow-btn" [routerLink]="['/service-details', service.slug]">
+                                <a class="tj-service-2-btn tj-arrow-btn" [routerLink]="['/services', service.slug]">
                                     Read More                                         
                                     <span class="icon_box">
                                         <i class="icon_first fa-regular fa-arrow-right"></i>
@@ -57,12 +55,14 @@
                     </div>
                 </div>
             </div>
-            <div class="tj-service-2-bottom-button wow fadeInUp" data-wow-delay=".7s">
-                <a class="tj-primary-btn tj-hover-btn" routerLink="/service-details">
-                    <span>browse all services <i class="flaticon-start"></i>
-                </span>
+            <div class="tj-service-2-bottom-button wow fadeInUp" data-wow-delay=".7s" *ngIf="hasMoreServices">
+                <button class="tj-primary-btn tj-hover-btn" (click)="loadMoreServices()" [disabled]="isLoading">
+                    <span>
+                        <ng-container *ngIf="!isLoading">show more services <i class="flaticon-start"></i></ng-container>
+                        <ng-container *ngIf="isLoading">Loading...</ng-container>
+                    </span>
                     <div class="tj-hover-btn-circle-dot"></div>
-                </a>
+                </button>
             </div>
         </div>
     </div>
