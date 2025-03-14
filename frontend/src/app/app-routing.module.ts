@@ -17,6 +17,13 @@ const routes: Routes = [
     }
   },
   {
+    path: 'services/:slug',
+    loadChildren: () => import('./pages/service-detail/service-detail.module').then(m => m.ServiceDetailModule),
+    data: {
+      layout: 'app',
+    }
+  },
+  {
     path: 'service-details',
     loadChildren: () => import('./pages/service-detail/service-detail.module').then(m => m.ServiceDetailModule),
     data: {
