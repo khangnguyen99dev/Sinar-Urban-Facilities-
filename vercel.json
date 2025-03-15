@@ -12,6 +12,18 @@
     ],
     "routes": [
       {
+        "src": "/uploads/(.*)",
+        "dest": "/build/uploads/$1"
+      },
+      {
+        "src": "/admin/(.*)",
+        "dest": "/build/admin/$1"
+      },
+      {
+        "src": "/api/(.*)",
+        "dest": "/build/api/$1"
+      },
+      {
         "src": "/(.*)",
         "dest": "/build/$1"
       }
